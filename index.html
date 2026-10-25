@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VentureWeavers — Weaving the DNA of Innovation</title>
+<meta name="description" content="VentureWeavers is a venture innovation services company providing hands-on support to the stakeholders of MENA's venture ecosystem, through Venture-as-a-Service: hands-on fractional leadership that builds, operates, and grows portfolios and ventures.">
+<meta name="theme-color" content="#070C0C">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Nunito+Sans:wght@200;300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#070C0C;--ink2:#0B1717;--ink3:#0F2520;--teal:#29BE9C;--teal-deep:#02686F;--mint:#DCF1DD;--dim:rgba(220,241,221,.55);--dimmer:rgba(220,241,221,.30);--line:rgba(41,190,156,.14);--ease:cubic-bezier(.16,1,.3,1)}
+*,::before,::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;overflow-x:hidden}
+body{background:var(--ink);color:var(--mint);font-family:"Nunito Sans",sans-serif;font-weight:300;-webkit-font-smoothing:antialiased;overflow-x:hidden;cursor:none}
+::selection{background:var(--teal);color:var(--ink)}
+a{color:inherit}
+button{font:inherit}
+.cp{font-family:"Chakra Petch",sans-serif}
+@media (max-width:768px),(pointer:coarse){body{cursor:auto}}
+body::before{content:"";position:fixed;inset:0;z-index:9000;pointer-events:none;opacity:.45;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.82' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.04'/%3E%3C/svg%3E")}
+#cur,#cur-r{position:fixed;border-radius:50%;pointer-events:none;z-index:8999;transform:translate(-50%,-50%);will-change:transform}
+#cur{width:7px;height:7px;background:var(--teal);mix-blend-mode:screen;transition:width .2s,height .2s}
+#cur-r{width:32px;height:32px;border:1px solid rgba(41,190,156,.3);transition:width .3s,height .3s,border-color .3s}
+body.hov #cur{width:14px;height:14px}
+body.hov #cur-r{width:56px;height:56px;border-color:var(--teal)}
+@media (max-width:768px),(pointer:coarse){#cur,#cur-r{display:none}}
+
+/* preloader */
+#pre{position:fixed;inset:0;z-index:8000;background:var(--ink);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:28px}
+.pre-logo svg{height:20px;width:auto;opacity:0;animation:pf .8s ease .2s forwards}
+.pre-rows{display:flex;flex-direction:column;gap:10px;width:240px;opacity:0;animation:pf .7s ease .6s forwards}
+.pre-row{display:flex;align-items:center;gap:12px}
+.pre-d{width:7px;height:7px;border-radius:50%;background:var(--teal);flex-shrink:0;animation:pb 1.2s ease-in-out infinite}
+.pre-bar{height:1px;background:rgba(41,190,156,.15);flex:1;position:relative;overflow:hidden}
+.pre-bar::after{content:"";position:absolute;inset:0;background:var(--teal);animation:ps 1.5s ease-in-out infinite}
+.pre-txt{font-family:"Chakra Petch",sans-serif;font-weight:300;font-size:9px;letter-spacing:.26em;text-transform:uppercase;color:var(--dimmer);white-space:nowrap}
+.pre-pct{font-family:"Chakra Petch",sans-serif;font-size:11px;color:rgba(220,241,221,.28);letter-spacing:.14em;opacity:0;animation:pf .6s ease .9s forwards}
+@keyframes pf{0%{opacity:0;transform:translateY(8px)}100%{opacity:1;transform:none}}
+@keyframes pb{0%,100%{opacity:.3;transform:scale(.8)}50%{opacity:1;transform:scale(1.3)}}
+@keyframes ps{0%{transform:translateX(-100%)}100%{transform:translateX(500%)}}
+
+/* top bar */
+#topbar{position:fixed;top:0;left:0;right:0;z-index:5000;display:flex;align-items:center;justify-content:space-between;padding:18px 40px;background:rgba(7,12,12,.88);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid rgba(41,190,156,.08);opacity:0;transition:opacity .7s}
+#topbar.vis{opacity:1}
+.tb-logo{display:flex;align-items:center;cursor:none}
+.tb-logo svg{height:17px;width:auto}
+.tb-right{display:flex;align-items:center;gap:28px}
+.tb-right a{font-family:"Chakra Petch",sans-serif;font-weight:500;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--dim);text-decoration:none;cursor:none;transition:color .25s;position:relative}
+.tb-right a::after{content:"";position:absolute;bottom:-2px;left:0;right:0;height:1px;background:var(--teal);transform:scaleX(0);transition:transform .3s;transform-origin:left}
+.tb-right a:hover,.tb-right a.act{color:var(--mint)}
+.tb-right a:hover::after,.tb-right a.act::after{transform:scaleX(1)}
+.tb-cta{font-family:"Chakra Petch",sans-serif;font-weight:600;font-size:11px;letter-spacing:.12em;text-transform:uppercase;background:var(--teal);border:none;color:var(--ink);padding:10px 20px;cursor:none;border-radius:100px;transition:box-shadow .3s,transform .2s}
+.tb-cta:hover{box-shadow:0 0 24px rgba(41,190,156,.4);transform:translateY(-1px)}
+.ham{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px}
+.ham span{display:block;width:22px;height:1.5px;background:var(--mint);transition:.3s;border-radius:1px}
+.ham.open span:nth-child(1){transform:rotate(45deg) translate(4.5px,4.5px)}
+.ham.open span:nth-child(2){opacity:0}
+.ham.open span:nth-child(3){transform:rotate(-45deg) translate(4.5px,-4.5px)}
+.mob-menu{display:none;position:fixed;inset:0;background:rgba(7,12,12,.97);backdrop-filter:blur(24px);z-index:4900;flex-direction:column;align-items:center;justify-content:center;gap:26px}
+.mob-menu.open{display:flex}
+.mob-menu a{font-family:"Chakra Petch",sans-serif;font-weight:600;font-size:22px;letter-spacing:.06em;text-transform:uppercase;color:var(--mint);text-decoration:none}
+.mob-menu a:last-of-type{color:var(--teal)}
+
+/* sections */
+.wall-section{position:relative;padding:110px 5vw 90px;z-index:2}
+.wall-section:first-of-type{padding-top:130px;min-height:100vh}
+.wall-section::before{content:"";position:absolute;inset:0;pointer-events:none;z-index:0}
+#s-opening::before{background:radial-gradient(70% 60% at 40% 40%,rgba(41,190,156,.05),transparent 70%)}
+#s-about::before{background:radial-gradient(60% 50% at 60% 50%,rgba(2,104,111,.06),transparent 70%)}
+#s-approach::before{background:radial-gradient(70% 50% at 35% 60%,rgba(41,190,156,.04),transparent 70%)}
+#s-services::before{background:radial-gradient(60% 60% at 65% 40%,rgba(2,104,111,.05),transparent 70%)}
+#s-value::before{background:radial-gradient(60% 60% at 30% 50%,rgba(41,190,156,.04),transparent 70%)}
+#s-join::before{background:radial-gradient(80% 80% at 50% 100%,rgba(2,104,111,.15),transparent 70%)}
+.inner{max-width:1200px;margin:0 auto;position:relative;z-index:1}
+.s-divider{width:100%;height:1px;background:linear-gradient(90deg,transparent,rgba(41,190,156,.18),rgba(2,104,111,.12),transparent);position:relative;overflow:hidden;z-index:2}
+.s-divider::after{content:"";position:absolute;top:-1px;height:3px;width:60px;background:var(--teal);box-shadow:0 0 10px var(--teal);animation:sdiv 5s ease-in-out infinite}
+@keyframes sdiv{0%{left:0;opacity:0}8%{opacity:1}92%{opacity:1}100%{left:calc(100% - 60px);opacity:0}}
+.s-label{font-family:"Chakra Petch",sans-serif;font-weight:400;font-size:9px;letter-spacing:.38em;text-transform:uppercase;color:var(--teal);display:flex;align-items:center;gap:16px;margin-bottom:16px}
+.s-label::before{content:"";width:28px;height:1px;background:var(--teal)}
+.ht{font-family:"Chakra Petch",sans-serif;font-weight:400;font-size:clamp(28px,3.8vw,58px);line-height:1.04;letter-spacing:-.02em;color:var(--mint);margin-bottom:20px;max-width:1000px}
+.ht em{font-style:italic;color:var(--teal);font-weight:300}
+.sub{font-size:15.5px;line-height:1.8;color:var(--dim);max-width:600px;margin-bottom:52px}
+
+/* pinboard primitives */
+.card{position:relative;will-change:transform}
+.card-shadow{box-shadow:4px 8px 28px rgba(0,0,0,.55),0 2px 8px rgba(0,0,0,.35)}
+.pin{position:absolute;top:-9px;width:16px;height:16px;border-radius:50%;background:radial-gradient(circle at 38% 38%,#F0D070,var(--teal));box-shadow:0 2px 5px rgba(0,0,0,.5),inset 0 1px 1px rgba(255,255,255,.25);z-index:2}
+.pin.left{left:22px}.pin.right{right:22px}.pin.center{left:50%;transform:translateX(-50%)}
+.tape{position:absolute;height:20px;width:56px;background:rgba(220,241,221,.08);border:1px solid rgba(220,241,221,.06);backdrop-filter:blur(2px);z-index:2;top:-9px}
+.tape.left{left:16px;transform:rotate(-1.5deg)}.tape.right{right:16px;transform:rotate(1.5deg)}.tape.center{left:50%;margin-left:-28px;transform:rotate(.5deg)}
+.topline::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--teal),var(--teal-deep))}
+@keyframes d1{0%,100%{transform:rotate(.8deg) translate(0,0)}50%{transform:rotate(1.1deg) translate(.5px,-1px)}}
+@keyframes d2{0%,100%{transform:rotate(-1deg) translate(0,0)}50%{transform:rotate(-.7deg) translate(-.5px,1px)}}
+@keyframes d3{0%,100%{transform:rotate(.5deg) translate(0,0)}50%{transform:rotate(.8deg) translate(.4px,.8px)}}
+@keyframes d4{0%,100%{transform:rotate(-1.2deg) translate(0,0)}50%{transform:rotate(-.9deg) translate(.3px,-1.2px)}}
+@keyframes d5{0%,100%{transform:rotate(.9deg) translate(0,0)}50%{transform:rotate(1.2deg) translate(-.4px,.6px)}}
+@keyframes d6{0%,100%{transform:rotate(-.7deg) translate(0,0)}50%{transform:rotate(-.4deg) translate(.6px,-.8px)}}
+.drift{transition:transform .4s var(--ease),box-shadow .4s}
+.drift:nth-child(6n+1){animation:d1 7s ease-in-out infinite}
+.drift:nth-child(6n+2){animation:d2 8.5s ease-in-out infinite}
+.drift:nth-child(6n+3){animation:d3 6.5s ease-in-out infinite}
+.drift:nth-child(6n+4){animation:d4 7.5s ease-in-out infinite}
+.drift:nth-child(6n+5){animation:d5 9s ease-in-out infinite}
+.drift:nth-child(6n+6){animation:d6 7s ease-in-out infinite}
+.drift:hover{animation:none!important;transform:rotate(0) translateY(-6px)!important;box-shadow:8px 16px 40px rgba(0,0,0,.65),0 0 0 1px rgba(41,190,156,.3)}
+
+/* buttons */
+.btn-p{display:inline-flex;align-items:center;gap:10px;font-family:"Chakra Petch",sans-serif;font-weight:600;font-size:11px;letter-spacing:.15em;text-transform:uppercase;background:var(--teal);color:var(--ink);padding:14px 28px;border:none;cursor:none;text-decoration:none;clip-path:polygon(10px 0,100% 0,calc(100% - 10px) 100%,0 100%);transition:box-shadow .3s,transform .2s}
+.btn-p:hover{box-shadow:0 0 36px rgba(41,190,156,.35);transform:translateY(-2px)}
+.btn-p svg{width:13px;height:13px;transition:transform .25s}
+.btn-p:hover svg{transform:translateX(4px)}
+.btn-g{display:inline-flex;align-items:center;gap:8px;font-family:"Chakra Petch",sans-serif;font-weight:500;font-size:10px;letter-spacing:.18em;text-transform:uppercase;background:transparent;color:var(--dim);border:1px solid rgba(143,184,154,.2);padding:13px 22px;cursor:none;text-decoration:none;clip-path:polygon(8px 0,100% 0,calc(100% - 8px) 100%,0 100%);transition:border-color .25s,color .25s,background .25s}
+.btn-g:hover{border-color:rgba(41,190,156,.4);color:var(--mint)}
+.btn-g.on{background:var(--teal);color:var(--ink);border-color:var(--teal)}
+
+/* hero */
+.opening-layout{display:grid;grid-template-columns:1fr 330px;gap:28px;align-items:start;max-width:1200px;margin:0 auto;position:relative;z-index:1}
+.hero-card{background:var(--ink2);border:1px solid rgba(41,190,156,.14);padding:52px 56px;border-radius:2px}
+.hero-ey{font-family:"Chakra Petch",sans-serif;font-weight:400;font-size:9px;letter-spacing:.38em;text-transform:uppercase;color:var(--teal);display:flex;align-items:center;gap:14px;margin-bottom:28px}
+.hero-ey::before{content:"";width:28px;height:1px;background:var(--teal)}
+.hero-title{font-family:"Chakra Petch",sans-serif;font-weight:600;font-size:clamp(46px,7vw,100px);line-height:.9;letter-spacing:-.03em;text-transform:uppercase;color:var(--mint);margin-bottom:32px}
+.hero-title .ac{color:var(--teal)}
+.hero-title .ot{color:transparent;font-style:italic;font-weight:400;background-image:linear-gradient(90deg,#DCF1DD,#29BE9C,#02686F,#29BE9C,#DCF1DD);background-size:300% 100%;-webkit-background-clip:text;background-clip:text;animation:gsh 7s ease-in-out infinite;padding-right:.12em;display:inline-block}
+@keyframes gsh{0%{background-position:0% center}50%{background-position:100% center}100%{background-position:0% center}}
+.hero-sub{font-size:15px;line-height:1.82;color:var(--dim);max-width:470px}
+.hero-sub b{color:var(--mint);font-weight:500}
+.hero-acts{display:flex;align-items:center;gap:14px;margin-top:34px;flex-wrap:wrap}
+.side-stack{display:flex;flex-direction:column;gap:22px;padding-top:8px}
+.c-dark{background:var(--ink3);border:1px solid var(--line);padding:28px 26px;border-radius:2px}
+.c-dark .lbl,.lbl{font-family:"Chakra Petch",sans-serif;font-weight:400;font-size:9px;letter-spacing:.3em;text-transform:uppercase;color:var(--teal);display:block;margin-bottom:12px}
+.lines2{display:grid;gap:8px;margin-top:4px}
+.lines2 div{display:flex;width:100%;align-items:center;gap:10px;font-family:"Chakra Petch",sans-serif;font-weight:500;font-size:13px;color:var(--mint)}
+.lines2 b{font-size:8.5px;letter-spacing:.14em;padding:3px 8px;border-radius:100px;background:rgba(41,190,156,.1);border:1px solid rgba(41,190,156,.25);color:var(--teal);font-weight:600}
+.c-note{background:#1C2E24;border:1px solid rgba(41,190,156,.16);border-top:3px solid var(--teal);padding:24px 22px;border-radius:0 0 2px 2px}
+.c-note .ni{font-family:"Chakra Petch",sans-serif;font-weight:700;font-size:38px;color:var(--teal);opacity:.2;line-height:1;display:block;margin-bottom:6px}
+.c-note h4{font-family:"Chakra Petch",sans-serif;font-weight:600;font-size:16px;color:var(--mint);margin-bottom:8px;line-height:1.2}
+.c-note h4 em{font-style:italic;color:var(--teal);font-weight:400}
+.c-note p{font-size:12.5px;line-height:1.72;color:var(--dim)}
+.side-stack .card:nth-child(1){animation:d1 9s ease-in-out infinite}
+.side-stack .card:nth-child(2){animation:d3 8s ease-in-out infinite}
+
+/* about */
+.about-big{font-family:"Chakra Petch",sans-serif;font-weight:400;font-size:clamp(28px,3.8vw,58px);line-height:1.1;letter-spacing:-.015em;color:var(--mint);max-width:1100px}
+.about-big em{font-style:italic;color:var(--teal);font-weight:300}
+.community-layout{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-top:56px;align-items:start}
+.c-manifesto{position:relative;background:var(--ink2);border:1px solid rgba(41,190,156,.18);border-radius:2px;padding:38px 26px 28px;margin-bottom:26px;box-shadow:5px 10px 30px rgba(0,0,0,.5),0 2px 6px rgba(0,0,0,.3)}
+.c-manifesto p{font-size:14.5px;line-height:1.85;color:var(--dim);margin-bottom:10px}
+.c-manifesto p:last-child{margin-bottom:0}
+.c-manifesto strong{color:var(--mint);font-weight:500}
+.c-manifesto .lbl{margin-bottom:10px}
+.c-manifesto .mis{font-family:"Chakra Petch",sans-serif;font-weight:300;font-size:clamp(17px,1.6vw,21px);line-height:1.45;color:var(--mint)}
+.c-manifesto .mis em{font-style:italic;color:var(--teal)}
+.community-stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:22px}
+.c-stat{position:relative;background:var(--ink2);border:1px solid rgba(41,190,156,.18);border-radius:2px;padding:22px 18px;box-shadow:4px 8px 24px rgba(0,0,0,.45)}
+.c-stat-n{font-family:"Chakra Petch",sans-serif;font-weight:600;font-size:30px;color:var(--teal);letter-spacing:-.03em;line-height:1;display:block;margin-bottom:5px}
+.c-stat-l{font-family:"Chakra Petch",sans-serif;font-weight:400;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--dim)}
+.illus-card{position:relative;background:var(--ink2);border:1px solid var(--line);padding:22px;border-radius:2px}
+.illus-card svg{width:100%;height:auto;display:block;margin:6px 0 8px}
+.illus-card p{font-size:12px;line-height:1.7;color:var(--dim);margin-top:6px}
+.models{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.tag{font-family:"Chakra Petch",sans-serif;font-size:8.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--teal);background:rgba(41,190,156,.07);border:1px solid rgba(41,190,156,.16);padding:4px 10px;border-radius:100px;white-space:nowrap}
+
+/* approach */
+.switch{display:inline-flex;gap:10px;margin-bottom:46px;flex-wrap:wrap}
+.bots{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;position:relative}
+
+.bcard{position:relative;background:var(--ink2);border:1px solid rgba(41,190,156,.18);border-radius:2px;padding:38px 22px 26px;box-shadow:5px 10px 30px rgba(0,0,0,.5);z-index:1;transition:opacity .5s,filter .5s,transform .4s var(--ease),box-shadow .4s}
+.bcard .num{font-family:"Chakra Petch",sans-serif;font-weight:300;font-size:52px;color:rgba(41,190,156,.12);line-height:1;position:absolute;top:10px;right:12px;letter-spacing:-.04em}
+.bcard h3{font-family:"Chakra Petch",sans-serif;font-weight:600;font-size:20px;color:var(--mint);margin:6px 0 10px}
+.bcard p{font-size:13px;line-height:1.7;color:var(--dim)}
+.bcard .tx{transition:opacity .3s}
+.bcard .tx.out{opacity:0}
+.adv .bcard.k{opacity:.25;filter:grayscale(1)}
+.adv .bcard.k .pin{opacity:0}
+.endnote{display:none;margin-top:22px;font-family:"Chakra Petch",sans-serif;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:#E07070}
+.adv .endnote{display:block}
+.aaa-band{position:relative;margin-top:44px;display:grid;grid-template-columns:auto 1fr auto;gap:28px;align-items:center;transition:opacity .5s,filter .5s}
+.adv .aaa-band{opacity:.2;filter:grayscale(1)}
+.aaa-band h4{font-family:"Chakra Petch",sans-serif;font-weight:600;font-size:17px}
+.aaa-band h4 em{font-style:italic;color:var(--teal);font-weight:400}
+.aaa{display:flex;gap:10px;flex-wrap:wrap}
+.aaa span{font-family:"Chakra Petch",sans-serif;font-weight:500;font-size:12px;letter-spacing:.12em;text-transform:uppercase;padding:8px 14px;border:1px solid rgba(41,190,156,.25);color:var(--mint);clip-path:polygon(6px 0,100% 0,calc(100% - 6px) 100%,0 100%)}
+.aaa span b{color:var(--teal)}
+.aaa-band small{font-family:"Chakra Petch",sans-serif;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--dimmer);text-align:right}
+
+/* services */
+.line-head{display:grid;grid-template-columns:auto 1fr;gap:22px;align-items:center;margin:10px 0 40px}
+.line-badge{font-family:"Chakra Petch",sans-serif;font-weight:700;font-size:13px;letter-spacing:.1em;color:var(--ink);background:var(--teal);padding:12px 16px;clip-path:polygon(8px 0,100% 0,calc(100% - 8px) 100%,0 100%)}
+.line-head h3{font-family:"Chakra Petch",sans-serif;font-weight:500;font-size:clamp(22px,2.4vw,32px);letter-spacing:-.01em;line-height:1.1}
+.line-head h3 em{font-style:italic;color:var(--teal);font-weight:300}
+.line-head p{font-size:13.5px;color:var(--dim);margin-top:4px}
+.postit-wall{display:grid;grid-template-columns:repeat(2,1fr);gap:30px 28px;margin-bottom:0}
+.postit-wall.three{grid-template-columns:repeat(3,1fr)}
+.postit-card{position:relative;background:var(--ink2);border:1px solid rgba(41,190,156,.18);border-radius:2px;padding:38px 26px 26px;cursor:none;box-shadow:5px 10px 30px rgba(0,0,0,.5),0 2px 6px rgba(0,0,0,.3);display:flex;flex-direction:column}
+.postit-num{font-family:"Chakra Petch",sans-serif;font-weight:300;font-size:52px;color:rgba(41,190,156,.1);line-height:1;position:absolute;top:10px;right:12px;letter-spacing:-.04em;pointer-events:none}
+.postit-icon{width:40px;height:40px;border-radius:8px;background:rgba(41,190,156,.08);border:1px solid rgba(41,190,156,.2);display:flex;align-items:center;justify-content:center;color:var(--teal);margin-bottom:16px}
+.postit-icon svg{width:18px;height:18px}
+.postit-card h3{font-family:"Chakra Petch",sans-serif;font-weight:600;font-size:18px;color:var(--mint);line-height:1.2;letter-spacing:.01em}
+.postit-card .tl{font-family:"Chakra Petch",sans-serif;font-weight:400;font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:var(--teal);margin:6px 0 12px}
+.postit-card p{font-size:13.5px;line-height:1.72;color:var(--dim)}
+.postit-card .covers{display:flex;flex-wrap:wrap;gap:6px;margin:16px 0 18px}
+.val{margin-top:auto;border-top:1px dashed rgba(41,190,156,.22);padding-top:14px;display:flex;gap:10px;align-items:flex-start}
+.val svg{width:16px;height:16px;color:var(--teal);flex:none;margin-top:2px}
+.val span{font-family:"Chakra Petch",sans-serif;font-weight:500;font-size:13.5px;line-height:1.45;color:var(--mint)}
+.aud{display:flex;gap:6px;margin:14px 0 10px}
+.aud button{font-family:"Chakra Petch",sans-serif;font-weight:600;font-size:9px;letter-spacing:.16em;text-transform:uppercase;padding:7px 12px;border:1px solid rgba(41,190,156,.25);background:transparent;color:var(--dim);cursor:none;clip-path:polygon(5px 0,100% 0,calc(100% - 5px) 100%,0 100%);transition:all .25s}
+.aud button.on{background:var(--teal);color:var(--ink);border-color:var(--teal)}
+.aud-t{font-size:13px;line-height:1.7;color:var(--mint);min-height:4.6em;transition:opacity .25s}
+.programs{display:flex;flex-wrap:wrap;gap:6px;margin:12px 0 16px}
+.programs span{font-size:11.5px;padding:5px 10px;border:1px dashed rgba(41,190,156,.28);color:var(--dim)}
+.programs span b{color:var(--mint);font-weight:500}
+
+/* value */
+.vwall{display:grid;grid-template-columns:repeat(3,1fr);gap:30px 28px}
+.vcard{position:relative;background:var(--ink2);border:1px solid rgba(41,190,156,.18);border-radius:2px;padding:36px 24px 26px;box-shadow:5px 10px 30px rgba(0,0,0,.5);cursor:none}
+.vcard .big{font-family:"Chakra Petch",sans-serif;font-weight:300;font-size:13px;letter-spacing:.28em;color:var(--teal);display:flex;align-items:center;gap:10px;margin-bottom:18px}
+.vcard .big::after{content:"";flex:1;height:1px;background:rgba(41,190,156,.16)}
+.vcard h3{font-family:"Chakra Petch",sans-serif;font-weight:600;font-size:19px;margin:14px 0 8px}
+.vcard h3 em{font-style:italic;color:var(--teal);font-weight:400}
+.vcard p{font-size:13.5px;line-height:1.72;color:var(--dim)}
+
+/* who */
+.who-cards-row{display:grid;gap:22px}
+.who-cards-row.row-3{grid-template-columns:repeat(3,1fr)}
+.who-cards-row.row-b{grid-template-columns:repeat(2,1fr);margin:24px auto 0;max-width:66%}
+.who-card{position:relative;background:var(--ink2);border:1px solid rgba(41,190,156,.16);border-radius:2px;padding:0 0 22px;cursor:none;box-shadow:5px 10px 30px rgba(0,0,0,.5)}
+.who-card-header{background:linear-gradient(135deg,rgba(41,190,156,.09),rgba(2,104,111,.05));border-bottom:1px solid rgba(41,190,156,.12);padding:22px 18px 14px;display:flex;align-items:center;gap:12px}
+.who-card-avatar{width:44px;height:44px;border-radius:50%;background:rgba(41,190,156,.1);border:1.5px solid rgba(41,190,156,.28);display:flex;align-items:center;justify-content:center;color:var(--teal);flex-shrink:0}
+.who-card-avatar svg{width:20px;height:20px}
+.who-card-num{font-family:"Chakra Petch",sans-serif;font-weight:300;font-size:9px;letter-spacing:.26em;color:var(--teal);display:block;margin-bottom:3px}
+.who-card h4{font-family:"Chakra Petch",sans-serif;font-weight:600;font-size:16px;color:var(--mint);line-height:1.15}
+.who-card h4 em{font-style:italic;color:var(--teal);font-weight:400}
+.who-card-body{padding:14px 18px 0}
+.who-card-body p{font-size:13px;line-height:1.72;color:var(--dim)}
+.who-card-body small{display:block;font-family:"Chakra Petch",sans-serif;font-size:8.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--dimmer);margin:14px 0 8px}
+.who-tags{display:flex;flex-wrap:wrap;gap:5px}
+
+/* join */
+.join-inner{position:relative;z-index:1;text-align:center;max-width:640px;margin:0 auto}
+.join-ht{font-family:"Chakra Petch",sans-serif;font-weight:400;font-size:clamp(30px,4.4vw,64px);line-height:1;letter-spacing:-.025em;color:var(--mint);margin-bottom:18px}
+.join-ht em{font-style:italic;color:var(--teal);font-weight:300}
+.join-p{font-size:15px;line-height:1.8;color:var(--dim);max-width:440px;margin:0 auto 40px}
+.vw-form-wrap{max-width:520px;margin:0 auto;text-align:left}
+.vw-form{display:flex;flex-direction:column;gap:16px}
+.vw-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.vw-field{display:flex;flex-direction:column;gap:7px}
+.vw-field label{font-family:"Chakra Petch",sans-serif;font-weight:500;font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--dim)}
+.vw-field input,.vw-field select{background:var(--ink2);border:1px solid rgba(41,190,156,.2);color:var(--mint);font-family:"Nunito Sans",sans-serif;font-weight:300;font-size:14px;padding:13px 16px;outline:none;appearance:none;-webkit-appearance:none;border-radius:0;transition:border-color .25s,box-shadow .25s;width:100%}
+.vw-field input:focus,.vw-field select:focus{border-color:rgba(41,190,156,.6);box-shadow:0 0 0 2px rgba(41,190,156,.1)}
+.vw-field input::placeholder{color:var(--dimmer)}
+.vw-sel-wrap{position:relative}
+.vw-sel-wrap::after{content:"";position:absolute;right:14px;top:50%;transform:translateY(-50%) translateY(2px);border:5px solid transparent;border-top-color:rgba(220,241,221,.4);pointer-events:none}
+.vw-field select{padding-right:36px;cursor:none}
+.vw-field select option{background:var(--ink2);color:var(--mint)}
+.vw-form-err{font-family:"Chakra Petch",sans-serif;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:#E07070;display:none}
+.vw-form-ok{text-align:center;display:none;padding:48px 24px}
+.vw-ok-icon{width:52px;height:52px;border-radius:50%;background:rgba(41,190,156,.1);border:1px solid rgba(41,190,156,.3);display:flex;align-items:center;justify-content:center;margin:0 auto 20px;color:var(--teal)}
+.vw-form-ok h4{font-family:"Chakra Petch",sans-serif;font-weight:500;font-size:15px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:12px}
+.vw-form-ok p{font-size:14px;color:var(--dim);line-height:1.75}
+.vw-submit .btn-p{width:100%;justify-content:center;margin-top:6px}
+
+/* footer */
+.wall-footer{position:relative;z-index:2;border-top:1px solid var(--line);padding:52px 5vw 22px}
+.foot-top{display:grid;grid-template-columns:1fr auto 1fr;gap:40px;align-items:center;margin-bottom:40px;max-width:1200px;margin-left:auto;margin-right:auto}
+.foot-brand svg{height:15px;width:auto}
+.foot-links{display:flex;gap:22px;flex-wrap:wrap;justify-content:center}
+.foot-links a{font-family:"Chakra Petch",sans-serif;font-weight:400;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--dimmer);text-decoration:none;cursor:none;transition:color .2s}
+.foot-links a:hover{color:var(--teal)}
+.foot-social{display:flex;justify-content:flex-end;gap:18px}
+.foot-social a{font-family:"Chakra Petch",sans-serif;font-weight:500;font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--dim);text-decoration:none;cursor:none;transition:color .2s}
+.foot-social a:hover{color:var(--teal)}
+.foot-bottom{border-top:1px solid rgba(41,190,156,.06);padding-top:18px;display:flex;justify-content:space-between;align-items:center;font-family:"Chakra Petch",sans-serif;font-weight:300;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--dimmer);max-width:1200px;margin:0 auto;gap:10px}
+
+/* reveal */
+.reveal{opacity:0;translate:0 24px;transition:opacity .8s ease,translate .8s var(--ease)}
+.reveal.done{opacity:1;translate:0 0}
+
+/* responsive */
+@media (max-width:1100px){.opening-layout{grid-template-columns:1fr 280px}}
+@media (max-width:1024px){
+  .community-layout{grid-template-columns:1fr}
+  .postit-wall.three,.vwall,.who-cards-row.row-3{grid-template-columns:repeat(2,1fr)}
+  .bots{grid-template-columns:repeat(2,1fr)}
+  .bots::before{display:none}
+  .aaa-band{grid-template-columns:1fr;gap:16px}
+  .aaa-band small{text-align:left}
+  .foot-top{grid-template-columns:1fr;gap:20px;text-align:center}
+  .foot-social{justify-content:center}
+  .foot-bottom{flex-direction:column;text-align:center}
+}
+@media (max-width:900px){
+  .opening-layout{display:flex;flex-direction:column}
+  .side-stack{flex-flow:row wrap}
+  .side-stack>*{flex:1;min-width:240px}
+  .who-cards-row.row-b{max-width:100%}
+}
+@media (max-width:768px){
+  #topbar{padding:14px 5vw}
+  .tb-right a,.tb-cta{display:none}
+  .ham{display:flex}
+  .wall-section{padding:90px 5vw 70px}
+  .wall-section:first-of-type{padding-top:100px}
+  .hero-card{padding:34px 26px}
+  .hero-title{font-size:clamp(40px,11vw,60px)}
+  .postit-wall,.postit-wall.three,.vwall,.who-cards-row.row-3,.who-cards-row.row-b,.bots{grid-template-columns:1fr}
+  .drift:nth-child(n),.side-stack .card{animation:none!important;transform:none!important}
+  .line-head{grid-template-columns:1fr;gap:14px}
+  .line-badge{justify-self:start}
+  .vw-row{grid-template-columns:1fr}
+  .postit-wall{margin-bottom:60px}
+}
+@media (max-width:480px){.hero-acts{flex-direction:column;align-items:stretch}.btn-p,.btn-g{justify-content:center}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;translate:none}}
+/* logo spotlight background */
+.spot{position:fixed;left:0;top:0;width:var(--sd,520px);height:var(--sd,520px);z-index:1;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22132%22%20height%3D%2264%22%20viewBox%3D%220%200%20132%2064%22%3E%3Cg%20fill%3D%22none%22%20stroke%3D%22%23DCF1DD%22%20stroke-opacity%3D%22.5%22%20stroke-width%3D%22.55%22%3E%3Cg%20transform%3D%22translate(8%208)%20scale(.62)%22%3E%3Cpath%20d%3D%22M36.65%2C20.58c-.14%2C0-.28%2C0-.43-.01-.12%2C0-.25-.02-.37-.03-2.22-.27-4.09-1.81-4.94-3.88l-4.71-11.41c-.42-1.02-1.34-1.79-2.43-1.91-.1-.01-.19-.02-.29-.02%2C0%2C0-.02%2C0-.03%2C0-1.01%2C0-1.96.47-2.55%2C1.28l-1.79%2C2.45c-.5.68-1.44.93-2.16.5-.83-.49-1.04-1.58-.49-2.34l1.83-2.5C19.51%2C1.03%2C21.48.06%2C23.53.09c.13%2C0%2C.26%2C0%2C.39.02%2C2.34.18%2C4.35%2C1.76%2C5.24%2C3.94l4.7%2C11.38c.42%2C1.03%2C1.36%2C1.81%2C2.47%2C1.92.09%2C0%2C.19.01.28.02.93%2C0%2C1.81-.43%2C2.43-1.13l2.46-2.76c.56-.63%2C1.52-.78%2C2.2-.29.78.57.88%2C1.67.26%2C2.38l-2.58%2C2.9c-1.22%2C1.37-2.92%2C2.13-4.74%2C2.13Z%22%2F%3E%3Cpath%20d%3D%22M20.49%2C20.58c-.14%2C0-.28%2C0-.43-.01-.12%2C0-.25-.02-.37-.03-2.22-.27-4.09-1.81-4.94-3.88l-4.71-11.41c-.42-1.02-1.34-1.79-2.43-1.91-.1-.01-.19-.02-.29-.02%2C0%2C0-.02%2C0-.03%2C0-1.01%2C0-1.96.47-2.55%2C1.28l-1.79%2C2.45c-.5.68-1.44.93-2.16.5-.83-.49-1.04-1.58-.49-2.34l1.83-2.5C3.35%2C1.03%2C5.33.06%2C7.38.09c.13%2C0%2C.26%2C0%2C.39.02%2C2.34.18%2C4.35%2C1.76%2C5.24%2C3.94l4.7%2C11.38c.42%2C1.03%2C1.36%2C1.81%2C2.47%2C1.92.09%2C0%2C.19.01.28.02.93%2C0%2C1.81-.43%2C2.43-1.13l2.46-2.76c.56-.63%2C1.52-.78%2C2.2-.29.78.57.88%2C1.67.26%2C2.38l-2.58%2C2.9c-1.22%2C1.37-2.92%2C2.13-4.74%2C2.13Z%22%2F%3E%3Cpath%20d%3D%22M50.16%2C15.45c.39.94%2C1.2%2C1.68%2C2.2%2C1.86.18.03.36.05.54.05.93%2C0%2C1.81-.43%2C2.43-1.13l2.47-2.78%2C1.42-1.79s.02-.03.04-.04c2.28-2.68%2C2.42-5.23.39-7.02-1.73-1.52-4.73-2.01-6.29-.29-.02.03-.04.06-.07.09l-1.8%2C2.47c-.5.68-1.44.93-2.16.5-.83-.49-1.04-1.58-.49-2.34l1.83-2.5c.08-.11.17-.24.3-.37%2C2.85-3.15%2C7.89-2.53%2C10.81.03%2C2.57%2C2.26%2C4.1%2C6.62-.04%2C11.51l-1.43%2C1.81-.06.07-2.58%2C2.9c-1.22%2C1.37-2.92%2C2.13-4.74%2C2.13-.14%2C0-.28%2C0-.43-.01-.12%2C0-.25-.02-.37-.03-2.22-.27-4.09-1.81-4.94-3.87-1.12-2.72-3.94-9.54-4.76-11.54-.26-.62-.7-1.16-1.3-1.47-.42-.21-.88-.33-1.37-.34-1.03-.03-1.97.45-2.58%2C1.28l-1.79%2C2.45c-.5.68-1.44.93-2.16.5-.83-.49-1.04-1.58-.49-2.34l1.74-2.39c.91-1.25%2C2.21-2.18%2C3.71-2.54.67-.16%2C1.34-.21%2C2-.16%2C2.34.18%2C4.35%2C1.76%2C5.25%2C3.94l4.71%2C11.4Z%22%2F%3E%3C%2Fg%3E%3Cg%20transform%3D%22translate(74%2040)%20scale(.62)%22%3E%3Cpath%20d%3D%22M36.65%2C20.58c-.14%2C0-.28%2C0-.43-.01-.12%2C0-.25-.02-.37-.03-2.22-.27-4.09-1.81-4.94-3.88l-4.71-11.41c-.42-1.02-1.34-1.79-2.43-1.91-.1-.01-.19-.02-.29-.02%2C0%2C0-.02%2C0-.03%2C0-1.01%2C0-1.96.47-2.55%2C1.28l-1.79%2C2.45c-.5.68-1.44.93-2.16.5-.83-.49-1.04-1.58-.49-2.34l1.83-2.5C19.51%2C1.03%2C21.48.06%2C23.53.09c.13%2C0%2C.26%2C0%2C.39.02%2C2.34.18%2C4.35%2C1.76%2C5.24%2C3.94l4.7%2C11.38c.42%2C1.03%2C1.36%2C1.81%2C2.47%2C1.92.09%2C0%2C.19.01.28.02.93%2C0%2C1.81-.43%2C2.43-1.13l2.46-2.76c.56-.63%2C1.52-.78%2C2.2-.29.78.57.88%2C1.67.26%2C2.38l-2.58%2C2.9c-1.22%2C1.37-2.92%2C2.13-4.74%2C2.13Z%22%2F%3E%3Cpath%20d%3D%22M20.49%2C20.58c-.14%2C0-.28%2C0-.43-.01-.12%2C0-.25-.02-.37-.03-2.22-.27-4.09-1.81-4.94-3.88l-4.71-11.41c-.42-1.02-1.34-1.79-2.43-1.91-.1-.01-.19-.02-.29-.02%2C0%2C0-.02%2C0-.03%2C0-1.01%2C0-1.96.47-2.55%2C1.28l-1.79%2C2.45c-.5.68-1.44.93-2.16.5-.83-.49-1.04-1.58-.49-2.34l1.83-2.5C3.35%2C1.03%2C5.33.06%2C7.38.09c.13%2C0%2C.26%2C0%2C.39.02%2C2.34.18%2C4.35%2C1.76%2C5.24%2C3.94l4.7%2C11.38c.42%2C1.03%2C1.36%2C1.81%2C2.47%2C1.92.09%2C0%2C.19.01.28.02.93%2C0%2C1.81-.43%2C2.43-1.13l2.46-2.76c.56-.63%2C1.52-.78%2C2.2-.29.78.57.88%2C1.67.26%2C2.38l-2.58%2C2.9c-1.22%2C1.37-2.92%2C2.13-4.74%2C2.13Z%22%2F%3E%3Cpath%20d%3D%22M50.16%2C15.45c.39.94%2C1.2%2C1.68%2C2.2%2C1.86.18.03.36.05.54.05.93%2C0%2C1.81-.43%2C2.43-1.13l2.47-2.78%2C1.42-1.79s.02-.03.04-.04c2.28-2.68%2C2.42-5.23.39-7.02-1.73-1.52-4.73-2.01-6.29-.29-.02.03-.04.06-.07.09l-1.8%2C2.47c-.5.68-1.44.93-2.16.5-.83-.49-1.04-1.58-.49-2.34l1.83-2.5c.08-.11.17-.24.3-.37%2C2.85-3.15%2C7.89-2.53%2C10.81.03%2C2.57%2C2.26%2C4.1%2C6.62-.04%2C11.51l-1.43%2C1.81-.06.07-2.58%2C2.9c-1.22%2C1.37-2.92%2C2.13-4.74%2C2.13-.14%2C0-.28%2C0-.43-.01-.12%2C0-.25-.02-.37-.03-2.22-.27-4.09-1.81-4.94-3.87-1.12-2.72-3.94-9.54-4.76-11.54-.26-.62-.7-1.16-1.3-1.47-.42-.21-.88-.33-1.37-.34-1.03-.03-1.97.45-2.58%2C1.28l-1.79%2C2.45c-.5.68-1.44.93-2.16.5-.83-.49-1.04-1.58-.49-2.34l1.74-2.39c.91-1.25%2C2.21-2.18%2C3.71-2.54.67-.16%2C1.34-.21%2C2-.16%2C2.34.18%2C4.35%2C1.76%2C5.25%2C3.94l4.71%2C11.4Z%22%2F%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E");background-size:132px 64px;opacity:0;transition:opacity .8s;will-change:transform;contain:strict;-webkit-mask-image:radial-gradient(closest-side,#000 20%,transparent 100%);mask-image:radial-gradient(closest-side,#000 20%,transparent 100%)}
+.spot.on{opacity:1}
+@media (pointer:coarse),(max-width:768px){.spot.on{opacity:.4}}
+/* top progress */
+.pbar{position:fixed;left:0;top:0;height:2px;width:100%;z-index:5001;background:linear-gradient(90deg,var(--teal-deep),var(--teal));transform-origin:left;transform:scaleX(0);box-shadow:0 0 10px rgba(41,190,156,.6)}
+/* giant section index (parallax) */
+.bgnum{position:absolute;right:3vw;top:60px;font-family:"Chakra Petch",sans-serif;font-weight:700;font-size:clamp(140px,22vw,340px);line-height:.8;color:transparent;-webkit-text-stroke:1px rgba(41,190,156,.08);pointer-events:none;z-index:0;user-select:none;will-change:transform}
+/* interactive card glow */
+@property --ga{syntax:'<number>';inherits:false;initial-value:0}
+.gl{background-image:radial-gradient(320px circle at var(--cx,50%) var(--cy,0%),rgba(41,190,156,var(--ga)),transparent 70%);transition:--ga .45s,transform .4s var(--ease),box-shadow .4s,opacity .7s,filter .5s,translate .9s cubic-bezier(.34,1.45,.64,1),rotate .9s cubic-bezier(.34,1.45,.64,1),scale .9s cubic-bezier(.34,1.45,.64,1)}
+.gl:hover,.gl.touch{--ga:.15}
+/* word reveal */
+.w{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.1em;margin-bottom:-.1em}
+.w>span{display:inline-block;transform:translateY(105%) rotate(4deg);transform-origin:left bottom;opacity:0;transition:transform .9s var(--ease),opacity .9s;transition-delay:calc(var(--i)*45ms)}
+.done .w>span{transform:none;opacity:1}
+.fill .wd{color:rgba(220,241,221,.16);transition:color .35s}
+.fill .wd.on{color:var(--mint)}
+.fill em .wd.on{color:var(--teal)}
+/* pin-drop reveal for cards */
+.reveal.drop{translate:0 -40px;rotate:-3deg;scale:1.04;transition:opacity .7s ease,translate .9s cubic-bezier(.34,1.45,.64,1),rotate .9s cubic-bezier(.34,1.45,.64,1),scale .9s cubic-bezier(.34,1.45,.64,1),--ga .45s,box-shadow .4s,transform .4s var(--ease)}
+.reveal.drop.alt{rotate:3deg}
+.reveal.drop.done{translate:0 0;rotate:0deg;scale:1}
+/* hero two-lines diagram */
+.lines-svg{width:100%;height:auto;display:block;margin:4px 0 12px;overflow:visible}
+.lines-svg .base{fill:none;stroke-width:1.6;opacity:.28}
+.lines-svg .flow{fill:none;stroke-width:2.2;stroke-linecap:round;stroke-dasharray:18 282;animation:flow 3.4s linear infinite}
+.lines-svg .flow.b{animation-duration:4.2s;animation-delay:-1.4s}
+@keyframes flow{to{stroke-dashoffset:-300}}
+.lines-svg .sd.a{fill:#29BE9C}.lines-svg .sd.b{fill:#DCF1DD}
+.lines-svg .sd{stroke:#0F2520;stroke-width:1.5;animation:tw 2.8s ease-in-out infinite;animation-delay:var(--d)}
+@keyframes tw{0%,100%{opacity:.55}50%{opacity:1}}
+.lines-svg .hub{fill:#29BE9C}
+.lines-svg .ring{fill:none;stroke:#29BE9C;stroke-width:.8;transform-box:fill-box;transform-origin:center;animation:ringp 2.6s ease-out infinite}
+.lines-svg .ring.r2{animation-delay:1.3s}
+@keyframes ringp{from{transform:scale(1);opacity:.7}to{transform:scale(3.2);opacity:0}}
+.lines-svg text{font-family:"Chakra Petch",sans-serif;font-size:7px;letter-spacing:.12em;fill:rgba(220,241,221,.55);text-transform:uppercase}
+.lines-svg .lb{font-weight:700;font-size:8.5px;text-transform:none;letter-spacing:.08em}
+.lines-svg .grp-a,.lines-svg .grp-b{transition:opacity .3s}
+.lines-svg[class*="hl-"] .grp-a,.lines-svg[class*="hl-"] .grp-b,.lines-svg[class*="hl-"] .grp-c{opacity:.15}
+.lines-svg.hl-a .grp-a,.lines-svg.hl-b .grp-b,.lines-svg.hl-c .grp-c{opacity:1}
+.lines-svg .sd.c{fill:#3FC3C9}
+.lines-svg .flow.c{animation-duration:3.8s;animation-delay:-2.2s}
+.lines-svg .flow.f{stroke-width:1.4;stroke-dasharray:6 294;animation-duration:2.6s}
+.lines-svg .lead{stroke-dasharray:2 3;opacity:.35}
+.lines2 div{cursor:none;padding:4px 0;transition:color .25s}
+.lines2 div:hover{color:var(--teal)}
+.lines2 small{margin-left:auto;font-family:"Chakra Petch",sans-serif;font-size:8.5px;letter-spacing:.14em;color:var(--dimmer);text-transform:uppercase}
+/* network diagram animation */
+.netsvg .sp{stroke-dasharray:2 3;animation:flow 6s linear infinite}
+.netsvg .nd{animation:tw 3.2s ease-in-out infinite;animation-delay:var(--d)}
+.netsvg .core{transform-box:fill-box;transform-origin:center;animation:ringp 3s ease-out infinite}
+.netsvg .orbit{transform-origin:150px 70px;animation:spin 60s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+/* approach: interactive steps */
+.track-line{position:relative;height:2px;background:rgba(41,190,156,.12);margin:0 0 34px}
+.track-line i{position:absolute;inset:0;background:linear-gradient(90deg,var(--teal-deep),var(--teal));transform-origin:left;transform:scaleX(var(--tp,0));box-shadow:0 0 10px rgba(41,190,156,.5)}
+.track-line b{position:absolute;top:50%;width:10px;height:10px;margin:-5px 0 0 -5px;border-radius:50%;background:var(--ink);border:2px solid rgba(41,190,156,.35);transition:background .4s,border-color .4s,box-shadow .4s}
+.track-line b.on{background:var(--teal);border-color:var(--teal);box-shadow:0 0 12px var(--teal)}
+.bcard{cursor:none}
+.bcard.act{border-color:rgba(41,190,156,.6);box-shadow:0 0 0 1px rgba(41,190,156,.35),8px 16px 40px rgba(0,0,0,.6);--ga:.1}
+.bcard.act .num{color:rgba(41,190,156,.4)}
+.bcard .more{display:inline-flex;align-items:center;gap:6px;margin-top:14px;font-family:"Chakra Petch",sans-serif;font-size:8.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--dimmer);transition:color .3s}
+.bcard.act .more,.bcard:hover .more{color:var(--teal)}
+.bdetail{position:relative;margin-top:30px;display:grid;grid-template-columns:1fr 1.3fr .9fr;gap:30px;align-items:start;background-color:var(--ink3);border:1px solid var(--line);padding:30px 28px;border-radius:2px}
+.bdetail .bd-h{font-family:"Chakra Petch",sans-serif;font-weight:500;font-size:clamp(20px,2vw,26px);line-height:1.15}
+.bdetail ul{list-style:none;display:grid;gap:10px}
+.bdetail li{display:flex;gap:10px;font-size:14px;line-height:1.5;color:var(--dim);opacity:0;transform:translateX(-8px);animation:li .5s var(--ease) forwards;animation-delay:calc(var(--i)*90ms)}
+.bdetail li::before{content:"";flex:none;width:7px;height:7px;margin-top:7px;background:var(--teal);clip-path:polygon(50% 0,100% 50%,50% 100%,0 50%)}
+@keyframes li{to{opacity:1;transform:none}}
+.bdetail .bd-o small{display:block;font-family:"Chakra Petch",sans-serif;font-size:8.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--teal);margin-bottom:8px}
+.bdetail .bd-o span{font-family:"Chakra Petch",sans-serif;font-weight:500;font-size:16px;line-height:1.35;color:var(--mint)}
+.bdetail .bd-in{transition:opacity .25s}
+.adv .bdetail{border-color:rgba(224,112,112,.25)}
+.adv .bdetail li::before{background:#E07070}
+.adv .bdetail .bd-o small{color:#E07070}
+.adv .track-line i{background:linear-gradient(90deg,#6b3b3b,#E07070);box-shadow:none}
+.adv .track-line b.on{background:#E07070;border-color:#E07070;box-shadow:none}
+/* footer icons */
+.foot-social a.ico{width:40px;height:40px;display:grid;place-items:center;border:1px solid var(--line);color:var(--mint);clip-path:polygon(7px 0,100% 0,100% calc(100% - 7px),calc(100% - 7px) 100%,0 100%,0 7px);transition:background .25s,color .25s,border-color .25s,transform .25s}
+.foot-social a.ico svg{width:17px;height:17px}
+.foot-social a.ico:hover{background:var(--teal);color:var(--ink);border-color:var(--teal);transform:translateY(-2px)}
+@media (max-width:1024px){.bdetail{grid-template-columns:1fr;gap:18px}}
+@media (max-width:768px){.bots .bdetail{margin-top:-10px}}
+@media (max-width:768px){.bgnum{font-size:120px;top:40px;right:-4px}.track-line{display:none}.reveal.drop{rotate:-1.5deg;translate:0 -20px}.reveal.drop.alt{rotate:1.5deg}}
+@media (prefers-reduced-motion:reduce){.w>span{transform:none;opacity:1}.reveal.drop{translate:none;rotate:none;scale:none}}
+
+
+/* ROUNDED-V2: rounded cards & buttons, softer logo bg, stronger scroll motion */
+.hero-card,.c-dark,.c-note,.c-manifesto,.c-stat,.illus-card,.postit-card,.vcard,.who-card,.bcard,.bdetail,.aaa-band{border-radius:18px!important}
+.c-note{border-top-width:1px!important;position:relative}
+.c-note::after{content:"";position:absolute;top:0;left:18px;right:18px;height:3px;border-radius:0 0 3px 3px;background:var(--teal)}
+.topline::before,.c-manifesto::before{left:18px!important;right:18px!important;border-radius:0 0 3px 3px}
+.who-card{overflow:hidden}
+.who-card .pin,.who-card .tape{display:none}
+.btn-p,.btn-g,.aud button,.aaa span,.line-badge{clip-path:none!important;border-radius:100px!important}
+.btn-p{padding:15px 30px}
+.line-badge{padding:10px 18px}
+.foot-social a.ico{clip-path:none!important;border-radius:50%}
+.vw-field input,.vw-field select{border-radius:12px}
+.postit-icon,.tag,.programs span{border-radius:10px}
+.tag{border-radius:100px}
+.programs span{border-radius:8px}
+.spot.on{opacity:.6}
+@media (pointer:coarse),(max-width:768px){.spot.on{opacity:.25}}
+/* stronger, sharper reveals */
+.reveal{filter:blur(6px);transition:opacity .8s ease,translate .9s var(--ease),filter .8s ease}
+.reveal.done{filter:none}
+.reveal.drop{translate:0 -70px;rotate:-6deg;scale:1.08;filter:blur(4px);transition:opacity .6s ease,translate 1s cubic-bezier(.34,1.6,.64,1),rotate 1s cubic-bezier(.34,1.6,.64,1),scale 1s cubic-bezier(.34,1.6,.64,1),filter .7s ease,--ga .45s,box-shadow .4s,transform .4s var(--ease)}
+.reveal.drop.alt{rotate:6deg}
+.reveal.drop.done{translate:0 0;rotate:0deg;scale:1;filter:none}
+.w>span{transform:translateY(115%) rotate(8deg) skewX(-6deg);filter:blur(3px);transition:transform 1s cubic-bezier(.2,1.3,.4,1),opacity .8s,filter .8s}
+.done .w>span{filter:none}
+.s-label::before{width:0;transition:width .9s var(--ease) .2s}
+.s-label.done::before{width:28px}
+.about-big .wd{display:inline-block;transition:color .35s,transform .5s var(--ease)}
+.about-big .wd:not(.on){transform:translateY(6px)}
+/* 3D tilt on hover */
+.tilt{transform-style:preserve-3d}
+.bgnum{-webkit-text-stroke:1px rgba(41,190,156,.11)}
+@media (max-width:768px){.reveal.drop{translate:0 -36px;rotate:-3deg;scale:1.04}.reveal.drop.alt{rotate:3deg}}
+@media (prefers-reduced-motion:reduce){.reveal,.reveal.drop{filter:none}.w>span{filter:none}}
+
+
+/* PERF-V3: composited background layers, lighter effects */
+#grid{position:fixed;inset:-40px;z-index:0;pointer-events:none;background-image:linear-gradient(rgba(41,190,156,.024) 1px,transparent 1px),linear-gradient(90deg,rgba(41,190,156,.024) 1px,transparent 1px);background-size:100px 100px;will-change:transform}
+#bg-glow{position:fixed;left:0;top:0;width:1400px;height:1400px;z-index:1;pointer-events:none;background:radial-gradient(closest-side,rgba(41,190,156,.045),transparent);will-change:transform;contain:strict}
+.card{will-change:auto}
+#cur,#cur-r{left:0!important;top:0!important;transform:translate3d(-100px,-100px,0)}
+/* mobile: no blur, small tilts like desktop, calm reveals */
+@media (max-width:768px),(pointer:coarse){
+  #bg-glow{display:none}
+  .reveal,.reveal.drop{filter:none!important}
+  .w>span{filter:none!important}
+  .reveal.drop{translate:0 -22px;rotate:-1deg;scale:1.02;transition:opacity .6s ease,translate .8s var(--ease),rotate .8s var(--ease),scale .8s var(--ease)!important}
+  .reveal.drop.alt{rotate:1deg}
+  .reveal.drop.done{translate:0 0;rotate:0deg;scale:1}
+  .drift:nth-child(odd){transform:rotate(.6deg)!important}
+  .drift:nth-child(even){transform:rotate(-.5deg)!important}
+  .side-stack .card:nth-child(1){transform:rotate(.6deg)!important}
+  .side-stack .card:nth-child(2){transform:rotate(-.5deg)!important}
+  .card-shadow,.c-manifesto,.postit-card,.who-card,.vcard,.bcard,.c-stat{box-shadow:0 6px 18px rgba(0,0,0,.45)!important}
+}
+
+
+/* PERF-V3b: drop blur filters on reveals (expensive while scrolling) */
+.reveal,.reveal.drop,.w>span{filter:none!important}
+.reveal{transition:opacity .8s ease,translate .9s var(--ease)!important}
+.reveal.drop{transition:opacity .6s ease,translate 1s cubic-bezier(.34,1.6,.64,1),rotate 1s cubic-bezier(.34,1.6,.64,1),scale 1s cubic-bezier(.34,1.6,.64,1),--ga .45s,box-shadow .4s,transform .4s var(--ease)!important}
+.w>span{transition:transform 1s cubic-bezier(.2,1.3,.4,1),opacity .8s!important}
+
+.l1{fill:#29be9c}.l2{fill:#02686f}.l3{fill:#dcf1dd}
+</style>
+</head>
+<body>
+<div id="cur"></div><div id="cur-r"></div>
+<div id="grid" aria-hidden="true"></div><div id="bg-glow" aria-hidden="true"></div>
+<div class="spot" id="spot"></div>
+<div class="pbar" id="pbar"></div>
+
+<!-- PRELOADER -->
+<div id="pre">
+  <div class="pre-logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 298.51 20.95"><path class="l3" d="M75.64,0h2.91l5.8,17.22h.06L90.21,0h2.91l-7.3,20.6h-2.88L75.64,0Z"/><path class="l3" d="M93.42,17.8v-9.03l2.83-2.83h7.68l2.83,2.83v5.36h-10.59v2.83l1.3,1.29h5.27l1.29-1.27v-1h2.71v1.82l-2.77,2.8h-7.74l-2.8-2.8ZM104.01,11.98v-2.38l-1.32-1.29h-5.21l-1.32,1.29v2.38h7.86Z"/><path class="l3" d="M110.43,5.94h2.62v2.88l2.88-2.88h4.59l2.88,2.88v11.77h-2.74v-10.95l-1.32-1.32h-2.8l-3.38,3.38v8.89h-2.74V5.94Z"/><path class="l3" d="M128.41,17.8v-9.51h-2.65v-2.35h2.71V1.18h2.68v4.77h4.56v2.38h-4.56v8.59l1.32,1.29h3.24v2.38h-4.47l-2.82-2.8Z"/><path class="l3" d="M138.5,17.78V5.94h2.74v10.98l1.32,1.29h2.74l3.41-3.41V5.94h2.74v14.66h-2.62v-2.91l-2.91,2.91h-4.59l-2.83-2.83Z"/><path class="l3" d="M155.57,5.94h2.62v2.56l2.53-2.56h3.91v2.38h-3.3l-3.03,3.06v9.21h-2.74V5.94Z"/><path class="l3" d="M166.11,17.8v-9.03l2.83-2.83h7.68l2.83,2.83v5.36h-10.59v2.83l1.3,1.29h5.27l1.3-1.27v-1h2.71v1.82l-2.77,2.8h-7.74l-2.8-2.8ZM176.7,11.98v-2.38l-1.32-1.29h-5.21l-1.32,1.29v2.38h7.86Z"/><path class="l3" d="M180.47,0h2.85l3.03,16.45h.09l4.65-16.45h2.44l4.53,16.45h.06l2.97-16.45h2.85l-4.18,20.6h-2.85l-4.56-16.45h-.09l-4.77,16.45h-2.85l-4.18-20.6Z"/><path class="l3" d="M205.42,17.8v-9.03l2.83-2.83h7.68l2.83,2.83v5.36h-10.59v2.83l1.3,1.29h5.27l1.3-1.27v-1h2.71v1.82l-2.77,2.8h-7.74l-2.8-2.8ZM216.02,11.98v-2.38l-1.32-1.29h-5.21l-1.32,1.29v2.38h7.86Z"/><path class="l3" d="M221.99,18.1v-3.62l2.5-2.5h7.71v-2.47l-1.3-1.27h-4.8l-1.27,1.27v1.09h-2.74v-1.8l2.85-2.85h7.09l2.85,2.85v11.8h-2.56v-2.41l-2.53,2.41h-5.33l-2.5-2.5ZM229.44,18.33l2.77-2.65v-1.53h-6.45l-1.03,1.03v2.15l1.03,1h3.68Z"/><path class="l3" d="M236.82,5.94h2.83l4.06,11.71h.12l4.03-11.71h2.83l-5.44,14.66h-2.94l-5.47-14.66Z"/><path class="l3" d="M252.45,17.8v-9.03l2.83-2.83h7.68l2.83,2.83v5.36h-10.59v2.83l1.3,1.29h5.27l1.3-1.27v-1h2.71v1.82l-2.77,2.8h-7.74l-2.8-2.8ZM263.05,11.98v-2.38l-1.32-1.29h-5.21l-1.32,1.29v2.38h7.86Z"/><path class="l3" d="M269.46,5.94h2.62v2.56l2.53-2.56h3.91v2.38h-3.3l-3.03,3.06v9.21h-2.74V5.94Z"/><path class="l3" d="M279.85,18.04v-1.82h2.74v1.09l1,.97h5.18l1-.97v-1.94l-1-1.03h-6.33l-2.47-2.47v-3.35l2.53-2.56h7.15l2.56,2.56v1.82h-2.74v-1.09l-1-.97h-4.77l-1,.97v1.82l1,1.03h6.27l2.53,2.53v3.41l-2.53,2.56h-7.56l-2.56-2.56Z"/><path class="l3" d="M294.95,19.6v-1.47l1-1h1.56l1,1v1.47l-1,1h-1.56l-1-1Z"/><path class="l2" d="M36.65,20.95c-.14,0-.28,0-.43-.01-.12,0-.25-.02-.37-.03-2.22-.27-4.09-1.81-4.94-3.88l-4.71-11.41c-.42-1.02-1.34-1.79-2.43-1.91-.1-.01-.19-.02-.29-.02,0,0-.02,0-.03,0-1.01,0-1.96.47-2.55,1.28l-1.79,2.45c-.5.68-1.44.93-2.16.5-.83-.49-1.04-1.58-.49-2.34l1.83-2.5c1.22-1.67,3.19-2.64,5.24-2.61.13,0,.26,0,.39.02,2.34.18,4.35,1.76,5.24,3.94l4.7,11.38c.42,1.03,1.36,1.81,2.47,1.92.09,0,.19.01.28.02.93,0,1.81-.43,2.43-1.13l2.46-2.76c.56-.63,1.52-.78,2.2-.29.78.57.88,1.67.26,2.38l-2.58,2.9c-1.22,1.37-2.92,2.13-4.74,2.13Z"/><path class="l1" d="M20.49,20.95c-.14,0-.28,0-.43-.01-.12,0-.25-.02-.37-.03-2.22-.27-4.09-1.81-4.94-3.88l-4.71-11.41c-.42-1.02-1.34-1.79-2.43-1.91-.1-.01-.19-.02-.29-.02,0,0-.02,0-.03,0-1.01,0-1.96.47-2.55,1.28l-1.79,2.45c-.5.68-1.44.93-2.16.5-.83-.49-1.04-1.58-.49-2.34l1.83-2.5C3.35,1.4,5.33.43,7.38.46c.13,0,.26,0,.39.02,2.34.18,4.35,1.76,5.24,3.94l4.7,11.38c.42,1.03,1.36,1.81,2.47,1.92.09,0,.19.01.28.02.93,0,1.81-.43,2.43-1.13l2.46-2.76c.56-.63,1.52-.78,2.2-.29.78.57.88,1.67.26,2.38l-2.58,2.9c-1.22,1.37-2.92,2.13-4.74,2.13Z"/><path class="l2" d="M50.16,15.81c.39.94,1.2,1.68,2.2,1.86.18.03.36.05.54.05.93,0,1.81-.43,2.43-1.13l2.47-2.78,1.42-1.79s.02-.03.04-.04c2.28-2.68,2.42-5.23.39-7.02-1.73-1.52-4.73-2.01-6.29-.29-.02.03-.04.06-.07.09l-1.8,2.47c-.5.68-1.44.93-2.16.5-.83-.49-1.04-1.58-.49-2.34l1.83-2.5c.08-.11.17-.24.3-.37,2.85-3.15,7.89-2.53,10.81.03,2.57,2.26,4.1,6.62-.04,11.51l-1.43,1.81-.06.07-2.58,2.9c-1.22,1.37-2.92,2.13-4.74,2.13-.14,0-.28,0-.43-.01-.12,0-.25-.02-.37-.03-2.22-.27-4.09-1.81-4.94-3.87-1.12-2.72-3.94-9.54-4.76-11.54-.26-.62-.7-1.16-1.3-1.47-.42-.21-.88-.33-1.37-.34-1.03-.03-1.97.45-2.58,1.28l-1.79,2.45c-.5.68-1.44.93-2.16.5-.83-.49-1.04-1.58-.49-2.34l1.74-2.39c.91-1.25,2.21-2.18,3.71-2.54.67-.16,1.34-.21,2-.16,2.34.18,4.35,1.76,5.25,3.94l4.71,11.4Z"/></svg></div>
+  <div class="pre-rows">
+    <div class="pre-row"><div class="pre-d"></div><div class="pre-txt">Engineering the context</div><div class="pre-bar"></div></div>
+    <div class="pre-row"><div class="pre-d" style="animation-delay:.2s"></div><div class="pre-txt">Building the engine</div><div class="pre-bar"></div></div>
+    <div class="pre-row"><div class="pre-d" style="animation-delay:.4s"></div><div class="pre-txt">Cairo · MENA</div><div class="pre-bar"></div></div>
+  </div>
+  <div class="pre-pct"><span id="pre-n">000</span> %</div>
+</div>
+
+<!-- TOP BAR -->
+<div id="topbar">
+  <a class="tb-logo" href="#s-opening" aria-label="VentureWeavers"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 298.51 20.95"><path class="l3" d="M75.64,0h2.91l5.8,17.22h.06L90.21,0h2.91l-7.3,20.6h-2.88L75.64,0Z"/><path class="l3" d="M93.42,17.8v-9.03l2.83-2.83h7.68l2.83,2.83v5.36h-10.59v2.83l1.3,1.29h5.27l1.29-1.27v-1h2.71v1.82l-2.77,2.8h-7.74l-2.8-2.8ZM104.01,11.98v-2.38l-1.32-1.29h-5.21l-1.32,1.29v2.38h7.86Z"/><path class="l3" d="M110.43,5.94h2.62v2.88l2.88-2.88h4.59l2.88,2.88v11.77h-2.74v-10.95l-1.32-1.32h-2.8l-3.38,3.38v8.89h-2.74V5.94Z"/><path class="l3" d="M128.41,17.8v-9.51h-2.65v-2.35h2.71V1.18h2.68v4.77h4.56v2.38h-4.56v8.59l1.32,1.29h3.24v2.38h-4.47l-2.82-2.8Z"/><path class="l3" d="M138.5,17.78V5.94h2.74v10.98l1.32,1.29h2.74l3.41-3.41V5.94h2.74v14.66h-2.62v-2.91l-2.91,2.91h-4.59l-2.83-2.83Z"/><path class="l3" d="M155.57,5.94h2.62v2.56l2.53-2.56h3.91v2.38h-3.3l-3.03,3.06v9.21h-2.74V5.94Z"/><path class="l3" d="M166.11,17.8v-9.03l2.83-2.83h7.68l2.83,2.83v5.36h-10.59v2.83l1.3,1.29h5.27l1.3-1.27v-1h2.71v1.82l-2.77,2.8h-7.74l-2.8-2.8ZM176.7,11.98v-2.38l-1.32-1.29h-5.21l-1.32,1.29v2.38h7.86Z"/><path class="l3" d="M180.47,0h2.85l3.03,16.45h.09l4.65-16.45h2.44l4.53,16.45h.06l2.97-16.45h2.85l-4.18,20.6h-2.85l-4.56-16.45h-.09l-4.77,16.45h-2.85l-4.18-20.6Z"/><path class="l3" d="M205.42,17.8v-9.03l2.83-2.83h7.68l2.83,2.83v5.36h-10.59v2.83l1.3,1.29h5.27l1.3-1.27v-1h2.71v1.82l-2.77,2.8h-7.74l-2.8-2.8ZM216.02,11.98v-2.38l-1.32-1.29h-5.21l-1.32,1.29v2.38h7.86Z"/><path class="l3" d="M221.99,18.1v-3.62l2.5-2.5h7.71v-2.47l-1.3-1.27h-4.8l-1.27,1.27v1.09h-2.74v-1.8l2.85-2.85h7.09l2.85,2.85v11.8h-2.56v-2.41l-2.53,2.41h-5.33l-2.5-2.5ZM229.44,18.33l2.77-2.65v-1.53h-6.45l-1.03,1.03v2.15l1.03,1h3.68Z"/><path class="l3" d="M236.82,5.94h2.83l4.06,11.71h.12l4.03-11.71h2.83l-5.44,14.66h-2.94l-5.47-14.66Z"/><path class="l3" d="M252.45,17.8v-9.03l2.83-2.83h7.68l2.83,2.83v5.36h-10.59v2.83l1.3,1.29h5.27l1.3-1.27v-1h2.71v1.82l-2.77,2.8h-7.74l-2.8-2.8ZM263.05,11.98v-2.38l-1.32-1.29h-5.21l-1.32,1.29v2.38h7.86Z"/><path class="l3" d="M269.46,5.94h2.62v2.56l2.53-2.56h3.91v2.38h-3.3l-3.03,3.06v9.21h-2.74V5.94Z"/><path class="l3" d="M279.85,18.04v-1.82h2.74v1.09l1,.97h5.18l1-.97v-1.94l-1-1.03h-6.33l-2.47-2.47v-3.35l2.53-2.56h7.15l2.56,2.56v1.82h-2.74v-1.09l-1-.97h-4.77l-1,.97v1.82l1,1.03h6.27l2.53,2.53v3.41l-2.53,2.56h-7.56l-2.56-2.56Z"/><path class="l3" d="M294.95,19.6v-1.47l1-1h1.56l1,1v1.47l-1,1h-1.56l-1-1Z"/><path class="l2" d="M36.65,20.95c-.14,0-.28,0-.43-.01-.12,0-.25-.02-.37-.03-2.22-.27-4.09-1.81-4.94-3.88l-4.71-11.41c-.42-1.02-1.34-1.79-2.43-1.91-.1-.01-.19-.02-.29-.02,0,0-.02,0-.03,0-1.01,0-1.96.47-2.55,1.28l-1.79,2.45c-.5.68-1.44.93-2.16.5-.83-.49-1.04-1.58-.49-2.34l1.83-2.5c1.22-1.67,3.19-2.64,5.24-2.61.13,0,.26,0,.39.02,2.34.18,4.35,1.76,5.24,3.94l4.7,11.38c.42,1.03,1.36,1.81,2.47,1.92.09,0,.19.01.28.02.93,0,1.81-.43,2.43-1.13l2.46-2.76c.56-.63,1.52-.78,2.2-.29.78.57.88,1.67.26,2.38l-2.58,2.9c-1.22,1.37-2.92,2.13-4.74,2.13Z"/><path class="l1" d="M20.49,20.95c-.14,0-.28,0-.43-.01-.12,0-.25-.02-.37-.03-2.22-.27-4.09-1.81-4.94-3.88l-4.71-11.41c-.42-1.02-1.34-1.79-2.43-1.91-.1-.01-.19-.02-.29-.02,0,0-.02,0-.03,0-1.01,0-1.96.47-2.55,1.28l-1.79,2.45c-.5.68-1.44.93-2.16.5-.83-.49-1.04-1.58-.49-2.34l1.83-2.5C3.35,1.4,5.33.43,7.38.46c.13,0,.26,0,.39.02,2.34.18,4.35,1.76,5.24,3.94l4.7,11.38c.42,1.03,1.36,1.81,2.47,1.92.09,0,.19.01.28.02.93,0,1.81-.43,2.43-1.13l2.46-2.76c.56-.63,1.52-.78,2.2-.29.78.57.88,1.67.26,2.38l-2.58,2.9c-1.22,1.37-2.92,2.13-4.74,2.13Z"/><path class="l2" d="M50.16,15.81c.39.94,1.2,1.68,2.2,1.86.18.03.36.05.54.05.93,0,1.81-.43,2.43-1.13l2.47-2.78,1.42-1.79s.02-.03.04-.04c2.28-2.68,2.42-5.23.39-7.02-1.73-1.52-4.73-2.01-6.29-.29-.02.03-.04.06-.07.09l-1.8,2.47c-.5.68-1.44.93-2.16.5-.83-.49-1.04-1.58-.49-2.34l1.83-2.5c.08-.11.17-.24.3-.37,2.85-3.15,7.89-2.53,10.81.03,2.57,2.26,4.1,6.62-.04,11.51l-1.43,1.81-.06.07-2.58,2.9c-1.22,1.37-2.92,2.13-4.74,2.13-.14,0-.28,0-.43-.01-.12,0-.25-.02-.37-.03-2.22-.27-4.09-1.81-4.94-3.87-1.12-2.72-3.94-9.54-4.76-11.54-.26-.62-.7-1.16-1.3-1.47-.42-.21-.88-.33-1.37-.34-1.03-.03-1.97.45-2.58,1.28l-1.79,2.45c-.5.68-1.44.93-2.16.5-.83-.49-1.04-1.58-.49-2.34l1.74-2.39c.91-1.25,2.21-2.18,3.71-2.54.67-.16,1.34-.21,2-.16,2.34.18,4.35,1.76,5.25,3.94l4.71,11.4Z"/></svg></a>
+  <div class="tb-right">
+    <a href="#s-about">About</a>
+    <a href="#s-approach">Approach</a>
+    <a href="#s-services">Services</a>
+    <a href="#s-value">Value</a>
+    <a href="#s-who">Who We Serve</a>
+    <button class="tb-cta" onclick="go('s-join')">Get Started</button>
+    <button class="ham" id="ham" onclick="toggleMob()" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</div>
+<div class="mob-menu" id="mob-menu">
+  <a href="#s-opening">Home</a><a href="#s-about">About</a><a href="#s-approach">Approach</a><a href="#s-services">Services</a><a href="#s-value">Value</a><a href="#s-who">Who We Serve</a><a href="#s-join">Get Started</a>
+</div>
+
+<!-- ═══ 1 · OPENING ═══ -->
+<section class="wall-section" id="s-opening">
+  <div class="opening-layout">
+    <div class="card hero-card gl card-shadow reveal">
+      <div class="pin left"></div><div class="pin right"></div>
+      <div class="hero-ey">MENA Venture Innovation Services</div>
+      <div class="hero-title">Weaving<br>the <span class="ac">DNA</span><br>of <span class="ot">Innovation</span></div>
+      <p class="hero-sub">Hands-on support for the stakeholders of MENA's venture ecosystem. <b>We build ventures and the infrastructure around them</b>, through hands-on fractional leadership that stays with you.</p>
+      <div class="hero-acts">
+        <button class="btn-p" onclick="go('s-join')">Start the Conversation <svg stroke="currentColor" fill="none" stroke-width="1.6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" height="18" width="18" xmlns="http://www.w3.org/2000/svg"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></button>
+        <a class="btn-g" href="#s-services">Explore Services</a>
+      </div>
+    </div>
+    <div class="side-stack">
+      <div class="card c-dark gl card-shadow reveal">
+        <div class="tape left"></div>
+        <span class="lbl">One Relationship · Three Levels</span>
+        <svg class="lines-svg" id="linesSvg" viewBox="0 0 240 150" aria-hidden="true">
+          <g class="grp-f"><text class="lb" x="2" y="9" style="fill:#DCF1DD;font-size:7px;letter-spacing:.14em">FRACTIONAL LEADERSHIP</text>
+            <path class="base lead" stroke="#DCF1DD" d="M4,16 C90,16 170,22 214,75"/>
+            <path class="flow f" stroke="#DCF1DD" pathLength="300" d="M4,16 C90,16 170,22 214,75"/></g>
+          <g class="grp-a"><path id="pA" class="base" stroke="#29BE9C" d="M4,40 C60,40 80,110 124,98 S188,62 214,75"/>
+            <path class="flow" stroke="#7FF0D2" pathLength="300" d="M4,40 C60,40 80,110 124,98 S188,62 214,75"/><text class="lb" x="4" y="34" style="fill:#29BE9C">L1</text></g>
+          <g class="grp-b"><path id="pB" class="base" stroke="#5FD3BE" d="M4,82 C52,82 72,46 120,54 S182,96 214,75"/>
+            <path class="flow b" stroke="#5FD3BE" pathLength="300" d="M4,82 C52,82 72,46 120,54 S182,96 214,75"/><text class="lb" x="4" y="76" style="fill:#5FD3BE">L2</text></g>
+          <g class="grp-c"><path id="pC" class="base" stroke="#1FA0A6" d="M4,124 C64,124 86,58 128,66 S192,88 214,75"/>
+            <path class="flow c" stroke="#3FC3C9" pathLength="300" d="M4,124 C64,124 86,58 128,66 S192,88 214,75"/><text class="lb" x="4" y="118" style="fill:#3FC3C9">L3</text></g>
+          <circle class="ring" cx="214" cy="75" r="6"/><circle class="ring r2" cx="214" cy="75" r="6"/>
+          <circle class="hub" cx="214" cy="75" r="5.5"/>
+          <text x="214" y="98" text-anchor="middle">Growth</text>
+        </svg>
+        <div class="lines2" id="lines2"><div data-g="a"><b>L1</b>Portfolio Infrastructure</div><div data-g="b"><b>L2</b>Venture Innovation Hub</div><div data-g="c"><b>L3</b>Venture Building &amp; Scaling</div></div>
+      </div>
+      <div class="card c-note gl card-shadow reveal">
+        <div class="pin center"></div>
+        <span class="ni">→</span>
+        <h4>We don't consult and leave. <em>We build together.</em></h4>
+        <p>An ongoing, fractional relationship: we partner, integrate, and build with your team, and we stay on after the handover.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="s-divider"></div>
+
+<!-- ═══ 2 · ABOUT ═══ -->
+<section class="wall-section" id="s-about">
+  <div class="bgnum" aria-hidden="true">01</div>
+  <div class="inner">
+    <div class="s-label reveal">About Us</div>
+    <h2 class="about-big fill reveal">A venture innovation services company providing <em>hands-on support</em> to every stakeholder of MENA's <em>venture ecosystem</em>.</h2>
+    <div class="community-layout">
+      <div>
+        <div class="c-manifesto gl drift reveal">
+          <div class="pin left"></div>
+          <p><strong>Hands-on, not hands-off.</strong> We work as a companion to the people we serve: we partner, integrate, and build with you. Every engagement is measured by what it produces, not by hours of advice.</p>
+          <p>We work with every side of the ecosystem, portfolio owners, investors, founders, studios, enablers, and corporates, and help them <strong>grow together</strong>.</p>
+        </div>
+        <div class="c-manifesto gl drift reveal">
+          <div class="tape right"></div>
+          <span class="lbl">Our Mission</span>
+          <p class="mis">To strengthen MENA's venture ecosystem by building the <em>infrastructure, leadership, and access</em> its stakeholders need to grow together.</p>
+        </div>
+      </div>
+      <div>
+        <div class="community-stat-grid">
+          <div class="c-stat gl drift reveal"><div class="pin left"></div><span class="c-stat-n" data-count="4">4</span><span class="c-stat-l">Services</span></div>
+          <div class="c-stat gl drift reveal"><div class="tape right"></div><span class="c-stat-n" data-count="5">5</span><span class="c-stat-l">Stakeholder Groups</span></div>
+          <div class="c-stat gl drift reveal"><div class="tape left"></div><span class="c-stat-n">MENA</span><span class="c-stat-l">Region Focus</span></div>
+          <div class="c-stat gl drift reveal"><div class="pin right"></div><span class="c-stat-n">∞</span><span class="c-stat-l">Network Access</span></div>
+        </div>
+        <div class="illus-card gl card-shadow reveal">
+          <span class="lbl">Multiple Service Models</span>
+          <svg class="netsvg" viewBox="0 0 300 140" fill="none" xmlns="http://www.w3.org/2000/svg"><ellipse cx="150" cy="70" rx="114" ry="62" stroke="#29BE9C" stroke-width=".5" opacity="0.05"/><ellipse cx="150" cy="70" rx="80" ry="44" stroke="#29BE9C" stroke-width=".5" opacity="0.08"/><ellipse cx="150" cy="70" rx="44" ry="26" stroke="#29BE9C" stroke-width=".5" opacity="0.12"/><line x1="150" y1="70" x2="194.0" y2="70.0" stroke="#29BE9C" stroke-width=".6" opacity=".35" class="sp"/><line x1="150" y1="70" x2="181.1" y2="88.4" stroke="#29BE9C" stroke-width=".6" opacity=".35" class="sp"/><line x1="150" y1="70" x2="150.0" y2="96.0" stroke="#29BE9C" stroke-width=".6" opacity=".35" class="sp"/><line x1="150" y1="70" x2="118.9" y2="88.4" stroke="#29BE9C" stroke-width=".6" opacity=".35" class="sp"/><line x1="150" y1="70" x2="106.0" y2="70.0" stroke="#29BE9C" stroke-width=".6" opacity=".35" class="sp"/><line x1="150" y1="70" x2="118.9" y2="51.6" stroke="#29BE9C" stroke-width=".6" opacity=".35" class="sp"/><line x1="150" y1="70" x2="150.0" y2="44.0" stroke="#29BE9C" stroke-width=".6" opacity=".35" class="sp"/><line x1="150" y1="70" x2="181.1" y2="51.6" stroke="#29BE9C" stroke-width=".6" opacity=".35" class="sp"/><line x1="194.0" y1="70.0" x2="230.0" y2="70.0" stroke="#29BE9C" stroke-width=".5" opacity=".2" class="sp"/><circle class="nd" style="--d:0.00s" cx="230.0" cy="70.0" r="1.7" fill="#29BE9C" opacity=".4"/><line x1="181.1" y1="88.4" x2="219.3" y2="92.0" stroke="#29BE9C" stroke-width=".5" opacity=".2" class="sp"/><circle class="nd" style="--d:0.27s" cx="219.3" cy="92.0" r="1.7" fill="#29BE9C" opacity=".4"/><line x1="181.1" y1="88.4" x2="190.0" y2="108.1" stroke="#29BE9C" stroke-width=".5" opacity=".2" class="sp"/><circle class="nd" style="--d:0.54s" cx="190.0" cy="108.1" r="1.7" fill="#29BE9C" opacity=".4"/><line x1="150.0" y1="96.0" x2="150.0" y2="114.0" stroke="#29BE9C" stroke-width=".5" opacity=".2" class="sp"/><circle class="nd" style="--d:0.81s" cx="150.0" cy="114.0" r="1.7" fill="#29BE9C" opacity=".4"/><line x1="118.9" y1="88.4" x2="110.0" y2="108.1" stroke="#29BE9C" stroke-width=".5" opacity=".2" class="sp"/><circle class="nd" style="--d:1.08s" cx="110.0" cy="108.1" r="1.7" fill="#29BE9C" opacity=".4"/><line x1="118.9" y1="88.4" x2="80.7" y2="92.0" stroke="#29BE9C" stroke-width=".5" opacity=".2" class="sp"/><circle class="nd" style="--d:1.35s" cx="80.7" cy="92.0" r="1.7" fill="#29BE9C" opacity=".4"/><line x1="106.0" y1="70.0" x2="70.0" y2="70.0" stroke="#29BE9C" stroke-width=".5" opacity=".2" class="sp"/><circle class="nd" style="--d:1.62s" cx="70.0" cy="70.0" r="1.7" fill="#29BE9C" opacity=".4"/><line x1="118.9" y1="51.6" x2="80.7" y2="48.0" stroke="#29BE9C" stroke-width=".5" opacity=".2" class="sp"/><circle class="nd" style="--d:1.89s" cx="80.7" cy="48.0" r="1.7" fill="#29BE9C" opacity=".4"/><line x1="118.9" y1="51.6" x2="110.0" y2="31.9" stroke="#29BE9C" stroke-width=".5" opacity=".2" class="sp"/><circle class="nd" style="--d:2.16s" cx="110.0" cy="31.9" r="1.7" fill="#29BE9C" opacity=".4"/><line x1="150.0" y1="44.0" x2="150.0" y2="26.0" stroke="#29BE9C" stroke-width=".5" opacity=".2" class="sp"/><circle class="nd" style="--d:2.43s" cx="150.0" cy="26.0" r="1.7" fill="#29BE9C" opacity=".4"/><line x1="181.1" y1="51.6" x2="190.0" y2="31.9" stroke="#29BE9C" stroke-width=".5" opacity=".2" class="sp"/><circle class="nd" style="--d:2.70s" cx="190.0" cy="31.9" r="1.7" fill="#29BE9C" opacity=".4"/><line x1="181.1" y1="51.6" x2="219.3" y2="48.0" stroke="#29BE9C" stroke-width=".5" opacity=".2" class="sp"/><circle class="nd" style="--d:2.97s" cx="219.3" cy="48.0" r="1.7" fill="#29BE9C" opacity=".4"/><circle cx="194.0" cy="70.0" r="2.2" class="nd" style="--d:0.00s" fill="#02686F" opacity=".7"/><circle cx="181.1" cy="88.4" r="2.2" class="nd" style="--d:0.40s" fill="#29BE9C" opacity=".7"/><circle cx="150.0" cy="96.0" r="2.2" class="nd" style="--d:0.80s" fill="#02686F" opacity=".7"/><circle cx="118.9" cy="88.4" r="2.2" class="nd" style="--d:1.20s" fill="#29BE9C" opacity=".7"/><circle cx="106.0" cy="70.0" r="2.2" class="nd" style="--d:1.60s" fill="#02686F" opacity=".7"/><circle cx="118.9" cy="51.6" r="2.2" class="nd" style="--d:2.00s" fill="#29BE9C" opacity=".7"/><circle cx="150.0" cy="44.0" r="2.2" class="nd" style="--d:2.40s" fill="#02686F" opacity=".7"/><circle cx="181.1" cy="51.6" r="2.2" class="nd" style="--d:2.80s" fill="#29BE9C" opacity=".7"/><circle cx="150" cy="70" r="3.5" fill="#29BE9C" opacity=".8"/><circle cx="150" cy="70" r="9" stroke="#29BE9C" stroke-width=".6" opacity=".2"/><circle class="core" cx="150" cy="70" r="6" stroke="#29BE9C" stroke-width=".8"/></svg>
+          <div class="models"><span class="tag">Fractional leadership</span><span class="tag">Project-based builds</span><span class="tag">Hands-on execution</span><span class="tag">Expert network</span></div>
+          <p>Matched to what each stakeholder needs, and grown as the relationship grows.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="s-divider"></div>
+
+<!-- ═══ 3 · APPROACH ═══ -->
+<section class="wall-section" id="s-approach">
+  <div class="bgnum" aria-hidden="true">02</div>
+  <div class="inner">
+    <div class="s-label reveal">Our Approach</div>
+    <h2 class="ht reveal">We don't consult and leave. <em>We build together.</em></h2>
+    <p class="sub reveal">Our fractional model is an ongoing relationship: a senior partner embedded in your decisions, building with your team and staying on after the handover.</p>
+    <div class="switch reveal" id="switch">
+      <button class="btn-g on" data-m="vw">The VentureWeavers way</button>
+      <button class="btn-g" data-m="adv">Typical advisory</button>
+    </div>
+    <div class="track-line" id="tline"><i></i><b style="left:12.5%"></b><b style="left:37.5%"></b><b style="left:62.5%"></b><b style="left:87.5%"></b></div>
+    <div class="bots" id="bots">
+      <div class="bcard gl drift reveal" data-i="0"><div class="pin center"></div><span class="num">01</span><div class="tx"><h3>Build</h3><p>Strategy, systems, and assets, built with your team.</p></div><span class="more">Explore ›</span></div>
+      <div class="bcard gl drift reveal" data-i="1"><div class="tape center"></div><span class="num">02</span><div class="tx"><h3>Operate</h3><p>We run it with you, until it performs.</p></div><span class="more">Explore ›</span></div>
+      <div class="bcard gl drift reveal" data-i="2"><div class="pin center"></div><span class="num">03</span><div class="tx"><h3>Transfer</h3><p>Documented and handed over, so the capability is yours.</p></div><span class="more">Explore ›</span></div>
+      <div class="bcard gl drift reveal k" data-i="3"><div class="tape center"></div><span class="num">04</span><div class="tx"><h3>Support</h3><p>We stay on, as your needs evolve.</p></div><span class="more">Explore ›</span></div>
+    </div>
+    <div class="bdetail gl card-shadow reveal" id="bdetail"><div class="tape right"></div>
+      <div class="bd-in"><span class="lbl" id="bdLbl">Step 01</span><div class="bd-h" id="bdH"></div></div>
+      <ul class="bd-in" id="bdUl"></ul>
+      <div class="bd-in bd-o"><small id="bdOs">What you get</small><span id="bdO"></span></div>
+    </div>
+    <div class="endnote" id="endnote">✕ &nbsp;Engagement ends after the report. Execution is left to you.</div>
+    <div class="aaa-band gl c-dark card-shadow reveal">
+      <div class="tape left"></div>
+      <h4>Fractional leadership, <em>throughout</em></h4>
+      <div class="aaa"><span><b>A</b>ssess</span><span><b>A</b>dvise</span><span><b>A</b>ccess</span></div>
+      <small>Bi-weekly · 12 months for portfolios<br>6 months for ventures</small>
+    </div>
+  </div>
+</section>
+<div class="s-divider"></div>
+
+<!-- ═══ 4 · SERVICES ═══ -->
+<section class="wall-section" id="s-services">
+  <div class="bgnum" aria-hidden="true">03</div>
+  <div class="inner">
+    <div class="s-label reveal">Our Services</div>
+    <h2 class="ht reveal">Venture-as-a-Service. <em>One hands-on venture partner.</em></h2>
+    <p class="sub reveal">Hands-on fractional leadership that builds, operates, and grows portfolios and ventures, from the portfolio level down to every venture inside it.</p>
+
+    <div class="line-head reveal"><span class="line-badge">VaaS</span><div><h3>One relationship. <em>Three levels.</em></h3><p>Fractional leadership is the relationship. The other three services are what it builds, each at its own level.</p></div></div>
+    <div class="postit-wall">
+      <div class="postit-card gl drift reveal"><div class="pin center"></div><div class="postit-num">01</div><div class="postit-icon"><svg stroke="currentColor" fill="none" stroke-width="1.6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" height="18" width="18" xmlns="http://www.w3.org/2000/svg"><path d="m16.24 7.76-1.804 5.411a2 2 0 0 1-1.265 1.265L7.76 16.24l1.804-5.411a2 2 0 0 1 1.265-1.265z"></path><circle cx="12" cy="12" r="10"></circle></svg></div>
+        <h3>Fractional Leadership</h3><div class="tl">The relationship · For portfolios and ventures</div>
+        <p>Senior leadership without a full-time hire: a partner embedded in your decisions, 12 months for portfolios and 6 months for ventures.</p>
+        <div class="covers"><span class="tag">Assess where you stand</span><span class="tag">Advise where to go</span><span class="tag">Access what you need</span></div>
+        <div class="val"><svg stroke="currentColor" fill="none" stroke-width="1.6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" height="18" width="18" xmlns="http://www.w3.org/2000/svg"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"></path><path d="M20 3v4"></path><path d="M22 5h-4"></path><path d="M4 17v2"></path><path d="M5 18H3"></path></svg><span>Better decisions, made faster, with a senior partner accountable alongside you.</span></div></div>
+      <div class="postit-card gl drift reveal"><div class="tape center"></div><div class="postit-num">02</div><div class="postit-icon"><svg stroke="currentColor" fill="none" stroke-width="1.6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" height="18" width="18" xmlns="http://www.w3.org/2000/svg"><path d="m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z"></path><path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65"></path><path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65"></path></svg></div>
+        <h3>Portfolio Infrastructure</h3><div class="tl">Level 1 · Structure, strategy & positioning</div>
+        <p>For portfolio owners, family offices, and investment arms: where the portfolio stands, where it is going, how it is seen, and the business it runs on.</p>
+        <div class="covers"><span class="tag">Situation assessment</span><span class="tag">Strategy & direction</span><span class="tag">Positioning</span><span class="tag">Business setup & AI</span></div>
+        <div class="val"><svg stroke="currentColor" fill="none" stroke-width="1.6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" height="18" width="18" xmlns="http://www.w3.org/2000/svg"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"></path><path d="M20 3v4"></path><path d="M22 5h-4"></path><path d="M4 17v2"></path><path d="M5 18H3"></path></svg><span>A clear thesis, a structure to run on, and a profile that attracts the right partners.</span></div></div>
+      <div class="postit-card gl drift reveal"><div class="tape left"></div><div class="postit-num">03</div><div class="postit-icon"><svg stroke="currentColor" fill="none" stroke-width="1.6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" height="18" width="18" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="3"></circle><circle cx="19" cy="5" r="2"></circle><circle cx="5" cy="19" r="2"></circle><path d="M10.4 21.9a10 10 0 0 0 9.941-15.416"></path><path d="M13.5 2.1a10 10 0 0 0-9.841 15.416"></path></svg></div>
+        <h3>Venture Innovation Hub</h3><div class="tl">Level 2 · Ecosystems that generate ventures</div>
+        <p>Hubs, accelerators, and incubators that generate and enable ventures: designed, set up, and handed over.</p>
+        <div class="covers"><span class="tag">Discovery & assessment</span><span class="tag">Program & economics design</span><span class="tag">Six ecosystem forces</span><span class="tag">AI hub co-pilot</span></div>
+        <div class="val"><svg stroke="currentColor" fill="none" stroke-width="1.6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" height="18" width="18" xmlns="http://www.w3.org/2000/svg"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"></path><path d="M20 3v4"></path><path d="M22 5h-4"></path><path d="M4 17v2"></path><path d="M5 18H3"></path></svg><span>An owned innovation asset that compounds, and a pipeline of ventures into your portfolio.</span></div></div>
+      <div class="postit-card gl drift reveal"><div class="pin right"></div><div class="postit-num">04</div><div class="postit-icon"><svg stroke="currentColor" fill="none" stroke-width="1.6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" height="18" width="18" xmlns="http://www.w3.org/2000/svg"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"></path><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"></path><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"></path><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"></path></svg></div>
+        <h3>Venture Building & Scaling</h3><div class="tl">Level 3 · Launch, rebalance & grow</div>
+        <p>For new, struggling, and growing ventures: we build the infrastructure to launch, recover, or scale, sustainably and profitably.</p>
+        <div class="covers"><span class="tag">Concept & validation</span><span class="tag">Context engineering</span><span class="tag">Brand, product & setup</span><span class="tag">Investment readiness</span></div>
+        <div class="val"><svg stroke="currentColor" fill="none" stroke-width="1.6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" height="18" width="18" xmlns="http://www.w3.org/2000/svg"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"></path><path d="M20 3v4"></path><path d="M22 5h-4"></path><path d="M4 17v2"></path><path d="M5 18H3"></path></svg><span>A venture that runs on its own infrastructure, by its own team.</span></div></div>
+    </div>
+
+  </div>
+</section>
+<div class="s-divider"></div>
+
+<!-- ═══ 5 · VALUE ═══ -->
+<section class="wall-section" id="s-value">
+  <div class="bgnum" aria-hidden="true">04</div>
+  <div class="inner">
+    <div class="s-label reveal">The Value We Build</div>
+    <h2 class="ht reveal">Measured by what it <em>produces.</em></h2>
+    <p class="sub reveal">Not by hours of advice. This is what every engagement is built to leave behind.</p>
+    <div class="vwall">
+      <div class="vcard gl topline drift reveal"><div class="pin left"></div><span class="big">01</span><div class="postit-icon"><svg stroke="currentColor" fill="none" stroke-width="1.6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" height="18" width="18" xmlns="http://www.w3.org/2000/svg"><path d="m16.24 7.76-1.804 5.411a2 2 0 0 1-1.265 1.265L7.76 16.24l1.804-5.411a2 2 0 0 1 1.265-1.265z"></path><circle cx="12" cy="12" r="10"></circle></svg></div><h3>Clear <em>direction</em></h3><p>A thesis and strategy set before anything is built. Every system traces back to it.</p></div>
+      <div class="vcard gl topline drift reveal"><div class="tape center"></div><span class="big">02</span><div class="postit-icon"><svg stroke="currentColor" fill="none" stroke-width="1.6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" height="18" width="18" xmlns="http://www.w3.org/2000/svg"><rect width="20" height="12" x="2" y="6" rx="6" ry="6"></rect><circle cx="16" cy="12" r="2"></circle></svg></div><h3>Systems that <em>run</em></h3><p>Built with your team, and operated with you until they perform.</p></div>
+      <div class="vcard gl topline drift reveal"><div class="pin right"></div><span class="big">03</span><div class="postit-icon"><svg stroke="currentColor" fill="none" stroke-width="1.6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" height="18" width="18" xmlns="http://www.w3.org/2000/svg"><rect x="16" y="16" width="6" height="6" rx="1"></rect><rect x="2" y="16" width="6" height="6" rx="1"></rect><rect x="9" y="2" width="6" height="6" rx="1"></rect><path d="M5 16v-3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3"></path><path d="M12 12V8"></path></svg></div><h3>Doors that <em>open</em></h3><p>Access to experts, partners, talent, and investors through our network.</p></div>
+      <div class="vcard gl topline drift reveal"><div class="tape left"></div><span class="big">04</span><div class="postit-icon"><svg stroke="currentColor" fill="none" stroke-width="1.6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" height="18" width="18" xmlns="http://www.w3.org/2000/svg"><path d="M2.586 17.414A2 2 0 0 0 2 18.828V21a1 1 0 0 0 1 1h3a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h1a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h.172a2 2 0 0 0 1.414-.586l.814-.814a6.5 6.5 0 1 0-4-4z"></path><circle cx="16.5" cy="7.5" r=".5" fill="currentColor"></circle></svg></div><h3>Capability you <em>own</em></h3><p>Documented, onboarded, and handed over, so it stays with your team.</p></div>
+      <div class="vcard gl topline drift reveal"><div class="pin center"></div><span class="big">05</span><div class="postit-icon"><svg stroke="currentColor" fill="none" stroke-width="1.6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" height="18" width="18" xmlns="http://www.w3.org/2000/svg"><path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z"></path><path d="M9 13a4.5 4.5 0 0 0 3-4"></path><path d="M6.003 5.125A3 3 0 0 0 6.401 6.5"></path><path d="M3.477 10.896a4 4 0 0 1 .585-.396"></path><path d="M6 18a4 4 0 0 1-1.967-.516"></path><path d="M12 13h4"></path><path d="M12 18h6a2 2 0 0 1 2 2v1"></path><path d="M12 8h8"></path><path d="M16 8V5a2 2 0 0 1 2-2"></path><circle cx="16" cy="13" r=".5"></circle><circle cx="18" cy="3" r=".5"></circle><circle cx="20" cy="21" r=".5"></circle><circle cx="20" cy="8" r=".5"></circle></svg></div><h3>AI-ready <em>infrastructure</em></h3><p>Your context engineered into systems that automation and AI can run on.</p></div>
+      <div class="vcard gl topline drift reveal"><div class="tape right"></div><span class="big">06</span><div class="postit-icon"><svg stroke="currentColor" fill="none" stroke-width="1.6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" height="18" width="18" xmlns="http://www.w3.org/2000/svg"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline><polyline points="16 7 22 7 22 13"></polyline></svg></div><h3>Growth that <em>compounds</em></h3><p>Every phase of work builds on the last, so the value compounds.</p></div>
+    </div>
+  </div>
+</section>
+<div class="s-divider"></div>
+
+<!-- ═══ 6 · WHO WE SERVE ═══ -->
+<section class="wall-section" id="s-who">
+  <div class="bgnum" aria-hidden="true">05</div>
+  <div class="inner">
+    <div class="s-label reveal">Who We Serve</div>
+    <h2 class="ht reveal">One ecosystem. <em>Every stakeholder.</em></h2>
+    <p class="sub reveal">A healthy venture ecosystem needs all of its parts to grow together. Most relationships start with one service and grow into others.</p>
+    <div class="who-cards-row row-3">
+      <div class="who-card gl topline drift reveal"><div class="pin left"></div>
+        <div class="who-card-header"><div class="who-card-avatar"><svg stroke="currentColor" fill="none" stroke-width="1.6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" height="18" width="18" xmlns="http://www.w3.org/2000/svg"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline><polyline points="16 7 22 7 22 13"></polyline></svg></div><div><span class="who-card-num">01 / 05</span><h4>Portfolio Owners & <em>Investors</em></h4></div></div>
+        <div class="who-card-body"><p>Family offices, groups, VCs, and angels building portfolios around their expertise.</p><small>Where we fit</small>
+          <div class="who-tags"><span class="tag">Fractional Leadership</span><span class="tag">Portfolio Infrastructure</span><span class="tag">Innovation Hub</span><span class="tag">Venture Building</span></div></div></div>
+      <div class="who-card gl topline drift reveal"><div class="tape center"></div>
+        <div class="who-card-header"><div class="who-card-avatar"><svg stroke="currentColor" fill="none" stroke-width="1.6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" height="18" width="18" xmlns="http://www.w3.org/2000/svg"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"></path><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"></path><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"></path><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"></path></svg></div><div><span class="who-card-num">02 / 05</span><h4>Founders & <em>Ventures</em></h4></div></div>
+        <div class="who-card-body"><p>New, struggling, or growing ventures that need structure to launch and scale.</p><small>Where we fit</small>
+          <div class="who-tags"><span class="tag">Fractional Leadership</span><span class="tag">Venture Building</span></div></div></div>
+      <div class="who-card gl topline drift reveal"><div class="pin right"></div>
+        <div class="who-card-header"><div class="who-card-avatar"><svg stroke="currentColor" fill="none" stroke-width="1.6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" height="18" width="18" xmlns="http://www.w3.org/2000/svg"><path d="m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z"></path><path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65"></path><path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65"></path></svg></div><div><span class="who-card-num">03 / 05</span><h4>Venture <em>Studios</em></h4></div></div>
+        <div class="who-card-body"><p>Studios running multiple ventures that need repeatable systems and talent.</p><small>Where we fit</small>
+          <div class="who-tags"><span class="tag">Fractional Leadership</span><span class="tag">Portfolio Infrastructure</span><span class="tag">Venture Building</span></div></div></div>
+    </div>
+    <div class="who-cards-row row-b">
+      <div class="who-card gl topline drift reveal"><div class="tape left"></div>
+        <div class="who-card-header"><div class="who-card-avatar"><svg stroke="currentColor" fill="none" stroke-width="1.6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" height="18" width="18" xmlns="http://www.w3.org/2000/svg"><path d="M7 20h10"></path><path d="M10 20c5.5-2.5.8-6.4 3-10"></path><path d="M9.5 9.4c1.1.8 1.8 2.2 2.3 3.7-2 .4-3.5.4-4.8-.3-1.2-.6-2.3-1.9-3-4.2 2.8-.5 4.4 0 5.5.8z"></path><path d="M14.1 6a7 7 0 0 0-1.1 4c1.9-.1 3.3-.6 4.3-1.4 1-1 1.6-2.3 1.7-4.6-2.7.1-4 1-4.9 2z"></path></svg></div><div><span class="who-card-num">04 / 05</span><h4><em>Enablers</em></h4></div></div>
+        <div class="who-card-body"><p>Accelerators, incubators, and hubs that support founders at scale.</p><small>Where we fit</small>
+          <div class="who-tags"><span class="tag">Fractional Leadership</span><span class="tag">Innovation Hub</span></div></div></div>
+      <div class="who-card gl topline drift reveal"><div class="pin center"></div>
+        <div class="who-card-header"><div class="who-card-avatar"><svg stroke="currentColor" fill="none" stroke-width="1.6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" height="18" width="18" xmlns="http://www.w3.org/2000/svg"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"></path><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"></path><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"></path><path d="M10 6h4"></path><path d="M10 10h4"></path><path d="M10 14h4"></path><path d="M10 18h4"></path></svg></div><div><span class="who-card-num">05 / 05</span><h4>Corporates & <em>Institutions</em></h4></div></div>
+        <div class="who-card-body"><p>Organizations embedding innovation and engaging with ventures.</p><small>Where we fit</small>
+          <div class="who-tags"><span class="tag">Fractional Leadership</span><span class="tag">Innovation Hub</span><span class="tag">Venture Building</span></div></div></div>
+    </div>
+  </div>
+</section>
+<div class="s-divider"></div>
+
+<!-- ═══ 7 · GET STARTED ═══ -->
+<section class="wall-section" id="s-join">
+  <div class="join-inner">
+    <div class="s-label reveal" style="justify-content:center;display:inline-flex;margin:0 auto 22px">Get Started</div>
+    <h2 class="join-ht reveal">Let's build <em>what's next.</em></h2>
+    <p class="join-p reveal">Reach out to start a conversation about how we can support your venture, your portfolio, or your ecosystem.</p>
+    <div class="vw-form-wrap reveal">
+      <form class="vw-form" id="vwForm" novalidate>
+        <div class="vw-row">
+          <div class="vw-field"><label for="vwFirst">First Name</label><input type="text" id="vwFirst" name="entry.600305313" placeholder="Your first name" required autocomplete="given-name"></div>
+          <div class="vw-field"><label for="vwLast">Last Name</label><input type="text" id="vwLast" name="entry.1766787096" placeholder="Your last name" required autocomplete="family-name"></div>
+        </div>
+        <div class="vw-field"><label for="vwEmail">Email Address</label><input type="email" id="vwEmail" name="entry.2137778131" placeholder="your@email.com" required autocomplete="email"></div>
+        <div class="vw-field"><label for="vwMobile">Mobile Number</label><input type="tel" id="vwMobile" name="entry.1988592930" placeholder="+20 100 000 0000" required autocomplete="tel"></div>
+        <div class="vw-field"><label for="vwRole">Ecosystem Role</label><div class="vw-sel-wrap"><select id="vwRole" name="entry.351336669" required>
+          <option value="" disabled selected>Select your role</option><option>Founder</option><option>Angel Investor</option><option>Institutional Investor</option><option>Venture Studio</option><option>Expert</option><option>Enabler</option><option>Corporate</option><option>Regulator / Policymaker</option><option>Other</option></select></div></div>
+        <div class="vw-field"><label for="vwCountry">Country / Region</label><div class="vw-sel-wrap"><select id="vwCountry" name="entry.578219609" required>
+          <option value="" disabled selected>Select your country</option><option>Egypt</option><option>UAE</option><option>Saudi Arabia</option><option>Qatar</option><option>Jordan</option><option>Lebanon</option><option>Other MENA</option><option>Outside MENA</option></select></div></div>
+        <div class="vw-field"><label for="vwLinkedin">LinkedIn URL</label><input type="text" id="vwLinkedin" name="entry.404903942" placeholder="https://linkedin.com/in/yourprofile" required></div>
+        <p class="vw-form-err" id="vwErr">Please fill in all required fields.</p>
+        <div class="vw-submit"><button type="submit" class="btn-p"><span>Start the Conversation</span><svg stroke="currentColor" fill="none" stroke-width="1.6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" height="18" width="18" xmlns="http://www.w3.org/2000/svg"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></button></div>
+      </form>
+      <div class="vw-form-ok" id="vwOk"><div class="vw-ok-icon"><svg stroke="currentColor" fill="none" stroke-width="1.6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" height="18" width="18" xmlns="http://www.w3.org/2000/svg"><path d="M20 6 9 17l-5-5"></path></svg></div><h4>Thanks for reaching out.</h4><p>We'll be in touch shortly to talk through how we can help.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="wall-footer">
+  <div class="foot-top">
+    <div class="foot-brand"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 298.51 20.95"><path class="l3" d="M75.64,0h2.91l5.8,17.22h.06L90.21,0h2.91l-7.3,20.6h-2.88L75.64,0Z"/><path class="l3" d="M93.42,17.8v-9.03l2.83-2.83h7.68l2.83,2.83v5.36h-10.59v2.83l1.3,1.29h5.27l1.29-1.27v-1h2.71v1.82l-2.77,2.8h-7.74l-2.8-2.8ZM104.01,11.98v-2.38l-1.32-1.29h-5.21l-1.32,1.29v2.38h7.86Z"/><path class="l3" d="M110.43,5.94h2.62v2.88l2.88-2.88h4.59l2.88,2.88v11.77h-2.74v-10.95l-1.32-1.32h-2.8l-3.38,3.38v8.89h-2.74V5.94Z"/><path class="l3" d="M128.41,17.8v-9.51h-2.65v-2.35h2.71V1.18h2.68v4.77h4.56v2.38h-4.56v8.59l1.32,1.29h3.24v2.38h-4.47l-2.82-2.8Z"/><path class="l3" d="M138.5,17.78V5.94h2.74v10.98l1.32,1.29h2.74l3.41-3.41V5.94h2.74v14.66h-2.62v-2.91l-2.91,2.91h-4.59l-2.83-2.83Z"/><path class="l3" d="M155.57,5.94h2.62v2.56l2.53-2.56h3.91v2.38h-3.3l-3.03,3.06v9.21h-2.74V5.94Z"/><path class="l3" d="M166.11,17.8v-9.03l2.83-2.83h7.68l2.83,2.83v5.36h-10.59v2.83l1.3,1.29h5.27l1.3-1.27v-1h2.71v1.82l-2.77,2.8h-7.74l-2.8-2.8ZM176.7,11.98v-2.38l-1.32-1.29h-5.21l-1.32,1.29v2.38h7.86Z"/><path class="l3" d="M180.47,0h2.85l3.03,16.45h.09l4.65-16.45h2.44l4.53,16.45h.06l2.97-16.45h2.85l-4.18,20.6h-2.85l-4.56-16.45h-.09l-4.77,16.45h-2.85l-4.18-20.6Z"/><path class="l3" d="M205.42,17.8v-9.03l2.83-2.83h7.68l2.83,2.83v5.36h-10.59v2.83l1.3,1.29h5.27l1.3-1.27v-1h2.71v1.82l-2.77,2.8h-7.74l-2.8-2.8ZM216.02,11.98v-2.38l-1.32-1.29h-5.21l-1.32,1.29v2.38h7.86Z"/><path class="l3" d="M221.99,18.1v-3.62l2.5-2.5h7.71v-2.47l-1.3-1.27h-4.8l-1.27,1.27v1.09h-2.74v-1.8l2.85-2.85h7.09l2.85,2.85v11.8h-2.56v-2.41l-2.53,2.41h-5.33l-2.5-2.5ZM229.44,18.33l2.77-2.65v-1.53h-6.45l-1.03,1.03v2.15l1.03,1h3.68Z"/><path class="l3" d="M236.82,5.94h2.83l4.06,11.71h.12l4.03-11.71h2.83l-5.44,14.66h-2.94l-5.47-14.66Z"/><path class="l3" d="M252.45,17.8v-9.03l2.83-2.83h7.68l2.83,2.83v5.36h-10.59v2.83l1.3,1.29h5.27l1.3-1.27v-1h2.71v1.82l-2.77,2.8h-7.74l-2.8-2.8ZM263.05,11.98v-2.38l-1.32-1.29h-5.21l-1.32,1.29v2.38h7.86Z"/><path class="l3" d="M269.46,5.94h2.62v2.56l2.53-2.56h3.91v2.38h-3.3l-3.03,3.06v9.21h-2.74V5.94Z"/><path class="l3" d="M279.85,18.04v-1.82h2.74v1.09l1,.97h5.18l1-.97v-1.94l-1-1.03h-6.33l-2.47-2.47v-3.35l2.53-2.56h7.15l2.56,2.56v1.82h-2.74v-1.09l-1-.97h-4.77l-1,.97v1.82l1,1.03h6.27l2.53,2.53v3.41l-2.53,2.56h-7.56l-2.56-2.56Z"/><path class="l3" d="M294.95,19.6v-1.47l1-1h1.56l1,1v1.47l-1,1h-1.56l-1-1Z"/><path class="l2" d="M36.65,20.95c-.14,0-.28,0-.43-.01-.12,0-.25-.02-.37-.03-2.22-.27-4.09-1.81-4.94-3.88l-4.71-11.41c-.42-1.02-1.34-1.79-2.43-1.91-.1-.01-.19-.02-.29-.02,0,0-.02,0-.03,0-1.01,0-1.96.47-2.55,1.28l-1.79,2.45c-.5.68-1.44.93-2.16.5-.83-.49-1.04-1.58-.49-2.34l1.83-2.5c1.22-1.67,3.19-2.64,5.24-2.61.13,0,.26,0,.39.02,2.34.18,4.35,1.76,5.24,3.94l4.7,11.38c.42,1.03,1.36,1.81,2.47,1.92.09,0,.19.01.28.02.93,0,1.81-.43,2.43-1.13l2.46-2.76c.56-.63,1.52-.78,2.2-.29.78.57.88,1.67.26,2.38l-2.58,2.9c-1.22,1.37-2.92,2.13-4.74,2.13Z"/><path class="l1" d="M20.49,20.95c-.14,0-.28,0-.43-.01-.12,0-.25-.02-.37-.03-2.22-.27-4.09-1.81-4.94-3.88l-4.71-11.41c-.42-1.02-1.34-1.79-2.43-1.91-.1-.01-.19-.02-.29-.02,0,0-.02,0-.03,0-1.01,0-1.96.47-2.55,1.28l-1.79,2.45c-.5.68-1.44.93-2.16.5-.83-.49-1.04-1.58-.49-2.34l1.83-2.5C3.35,1.4,5.33.43,7.38.46c.13,0,.26,0,.39.02,2.34.18,4.35,1.76,5.24,3.94l4.7,11.38c.42,1.03,1.36,1.81,2.47,1.92.09,0,.19.01.28.02.93,0,1.81-.43,2.43-1.13l2.46-2.76c.56-.63,1.52-.78,2.2-.29.78.57.88,1.67.26,2.38l-2.58,2.9c-1.22,1.37-2.92,2.13-4.74,2.13Z"/><path class="l2" d="M50.16,15.81c.39.94,1.2,1.68,2.2,1.86.18.03.36.05.54.05.93,0,1.81-.43,2.43-1.13l2.47-2.78,1.42-1.79s.02-.03.04-.04c2.28-2.68,2.42-5.23.39-7.02-1.73-1.52-4.73-2.01-6.29-.29-.02.03-.04.06-.07.09l-1.8,2.47c-.5.68-1.44.93-2.16.5-.83-.49-1.04-1.58-.49-2.34l1.83-2.5c.08-.11.17-.24.3-.37,2.85-3.15,7.89-2.53,10.81.03,2.57,2.26,4.1,6.62-.04,11.51l-1.43,1.81-.06.07-2.58,2.9c-1.22,1.37-2.92,2.13-4.74,2.13-.14,0-.28,0-.43-.01-.12,0-.25-.02-.37-.03-2.22-.27-4.09-1.81-4.94-3.87-1.12-2.72-3.94-9.54-4.76-11.54-.26-.62-.7-1.16-1.3-1.47-.42-.21-.88-.33-1.37-.34-1.03-.03-1.97.45-2.58,1.28l-1.79,2.45c-.5.68-1.44.93-2.16.5-.83-.49-1.04-1.58-.49-2.34l1.74-2.39c.91-1.25,2.21-2.18,3.71-2.54.67-.16,1.34-.21,2-.16,2.34.18,4.35,1.76,5.25,3.94l4.71,11.4Z"/></svg></div>
+    <div class="foot-links"><a href="#s-about">About</a><a href="#s-services">Services</a><a href="#s-who">Who We Serve</a><a href="#s-join">Get Started</a></div>
+    <div class="foot-social"><a class="ico" href="https://www.linkedin.com/company/ventureweavers" target="_blank" rel="noopener" aria-label="LinkedIn"><svg stroke="currentColor" fill="none" stroke-width="1.6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" height="18" width="18" xmlns="http://www.w3.org/2000/svg"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect width="4" height="12" x="2" y="9"></rect><circle cx="4" cy="4" r="2"></circle></svg></a><a class="ico" href="https://www.instagram.com/ventureweavers/" target="_blank" rel="noopener" aria-label="Instagram"><svg stroke="currentColor" fill="none" stroke-width="1.6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" height="18" width="18" xmlns="http://www.w3.org/2000/svg"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line></svg></a><a class="ico" href="mailto:info@ventureweavers.com" aria-label="Email"><svg stroke="currentColor" fill="none" stroke-width="1.6" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" height="18" width="18" xmlns="http://www.w3.org/2000/svg"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg></a></div>
+  </div>
+  <div class="foot-bottom"><span>© 2026 VentureWeavers</span><span>Venture-as-a-Service</span><span>Cairo · MENA</span></div>
+</footer>
+
+<script>
+const RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+function go(id){document.getElementById(id).scrollIntoView({behavior:'smooth'})}
+function toggleMob(){document.getElementById('mob-menu').classList.toggle('open');document.getElementById('ham').classList.toggle('open')}
+document.querySelectorAll('.mob-menu a').forEach(a=>a.addEventListener('click',()=>{document.getElementById('mob-menu').classList.remove('open');document.getElementById('ham').classList.remove('open')}));
+
+/* cursor (transform-based, idles when still) */
+(function(){const dot=document.getElementById('cur'),ring=document.getElementById('cur-r');if(!matchMedia('(pointer:fine)').matches)return;let mx=-100,my=-100,rx=-100,ry=-100,run=false;
+  function loop(){rx+=(mx-rx)*.18;ry+=(my-ry)*.18;ring.style.transform=`translate3d(${rx}px,${ry}px,0) translate(-50%,-50%)`;if(Math.abs(mx-rx)+Math.abs(my-ry)>.3)requestAnimationFrame(loop);else run=false}
+  document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;dot.style.transform=`translate3d(${mx}px,${my}px,0) translate(-50%,-50%)`;if(!run){run=true;requestAnimationFrame(loop)}},{passive:true});
+  document.querySelectorAll('a,button,.drift,.who-card,.c-stat,.c-manifesto').forEach(el=>{el.addEventListener('mouseenter',()=>document.body.classList.add('hov'));el.addEventListener('mouseleave',()=>document.body.classList.remove('hov'))});
+})();
+
+/* preloader */
+(function(){const num=document.getElementById('pre-n'),pre=document.getElementById('pre'),t0=performance.now(),dur=RM?10:1600;
+  function tick(now){const pct=Math.min(100,Math.round((now-t0)/dur*100));num.textContent=String(pct).padStart(3,'0');
+    if(pct<100){requestAnimationFrame(tick);return}
+    setTimeout(()=>{pre.style.transition='opacity .8s ease,transform .8s ease';pre.style.opacity='0';pre.style.transform='scale(1.02)';setTimeout(()=>{pre.style.display='none';startSite()},820)},RM?0:300)}
+  requestAnimationFrame(tick)})();
+
+function startSite(){
+  document.getElementById('topbar').classList.add('vis');
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){const el=e.target;const sib=[...el.parentNode.children].filter(c=>c.classList.contains('reveal'));const k=Math.max(0,sib.indexOf(el))%3;setTimeout(()=>el.classList.add('done'),k*110);io.unobserve(el)}}),{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  document.querySelectorAll('[data-count]').forEach(n=>{new IntersectionObserver((e,o)=>{if(e[0].isIntersecting){o.disconnect();if(RM)return;const to=+n.dataset.count,t0=performance.now();const f=t=>{const p=Math.min(1,(t-t0)/1200);n.textContent=Math.round((1-Math.pow(1-p,3))*to);if(p<1)requestAnimationFrame(f)};requestAnimationFrame(f)}}).observe(n)});
+}
+
+/* word-split headings (rise) + scroll-fill (about) */
+function splitWords(el,cls){let i=0;const walk=n=>[...n.childNodes].forEach(c=>{if(c.nodeType===3){const f=document.createDocumentFragment();c.textContent.split(/(\s+)/).forEach(p=>{if(!p)return;if(/^\s+$/.test(p)){f.appendChild(document.createTextNode(' '));return}
+  if(cls==='w'){const w=document.createElement('span');w.className='w';const s=document.createElement('span');s.textContent=p;s.style.setProperty('--i',i++);w.appendChild(s);f.appendChild(w)}else{const s=document.createElement('span');s.className='wd';s.textContent=p;f.appendChild(s)}});c.replaceWith(f)}else if(c.nodeType===1&&c.tagName!=='BR')walk(c)});walk(el)}
+document.querySelectorAll('.ht,.join-ht').forEach(h=>splitWords(h,'w'));
+document.querySelectorAll('.fill').forEach(h=>splitWords(h,'wd'));
+const fillWords=[...document.querySelectorAll('.fill .wd')];
+/* cards land like pinned notes */
+document.querySelectorAll('.reveal').forEach((el,i)=>{if(el.matches('.card,.c-manifesto,.c-stat,.illus-card,.postit-card,.vcard,.who-card,.bcard,.bdetail,.aaa-band')){el.classList.add('drop');if(i%2)el.classList.add('alt')}});
+
+/* interactive card glow (mouse + touch) */
+document.querySelectorAll('.gl').forEach(c=>{const pos=(x,y)=>{const r=c.getBoundingClientRect();c.style.setProperty('--cx',(x-r.left)+'px');c.style.setProperty('--cy',(y-r.top)+'px')};
+  c.addEventListener('pointermove',e=>pos(e.clientX,e.clientY));
+  c.addEventListener('touchstart',e=>{const t=e.touches[0];pos(t.clientX,t.clientY);c.classList.add('touch');clearTimeout(c._t);c._t=setTimeout(()=>c.classList.remove('touch'),1100)},{passive:true})});
+
+/* hero diagram: service dots along each line */
+(function(){const svg=document.getElementById('linesSvg'),NS='http://www.w3.org/2000/svg';
+  const A=document.getElementById('pA'),B=document.getElementById('pB');
+  const add=(p,fr,cls,name,k)=>{const L=p.getTotalLength(),pt=p.getPointAtLength(L*fr);const c=document.createElementNS(NS,'circle');c.setAttribute('cx',pt.x.toFixed(1));c.setAttribute('cy',pt.y.toFixed(1));c.setAttribute('r',3.2);c.setAttribute('class','sd '+cls);c.style.setProperty('--d',(k*.35)+'s');const t=document.createElementNS(NS,'title');t.textContent=name;c.appendChild(t);svg.querySelector('.grp-'+cls).appendChild(c)};
+  add(A,.55,'a','Portfolio Infrastructure',0);add(document.getElementById('pB'),.5,'b','Venture Innovation Hub',1);add(document.getElementById('pC'),.55,'c','Venture Building & Scaling',2);
+  document.querySelectorAll('#lines2 div').forEach(d=>{d.addEventListener('mouseenter',()=>svg.classList.add('hl-'+d.dataset.g));d.addEventListener('mouseleave',()=>svg.classList.remove('hl-'+d.dataset.g))});
+})();
+
+/* approach: interactive steps (VentureWeavers way first, no auto switching) */
+const VWD=[['Build','Strategy, systems, and assets, built with your team.','We set the direction, then build it with you.',['Strategy and direction set before anything is built','Systems, assets, and processes built with your team','Your team involved at every step'],'A foundation your venture or portfolio can run on.'],
+ ['Operate','We run it with you, until it performs.','We run it alongside you, until it performs.',['Operated side by side with your team','Measured against clear KPIs','Refined as real results come in'],'Systems that perform, not slides.'],
+ ['Transfer','Documented and handed over, so the capability is yours.','The capability becomes yours.',['Documented end to end','Your team onboarded and trained','Ownership handed over'],'Capability your team owns.'],
+ ['Support','We stay on, as your needs evolve.','We stay on as your needs evolve.',['Ongoing fractional leadership: Assess, Advise, Access','Access to our network and services','Ready for what comes next'],'A long-term partner, not a one-off report.']];
+const ADVD=[['Brief','You explain the challenge.','You explain the challenge.',['A few discovery meetings','A limited view of your context','No one embedded in your team'],'A problem statement.'],
+ ['Advice','Recommendations are made.','Recommendations are made from the outside.',['Frameworks and best practices','Built away from your team','Execution not included'],'A list of recommendations.'],
+ ['Report','A deck is delivered.','A deck is delivered, and the engagement ends.',['Findings presented','Engagement wraps up','Implementation is on you'],'A report.'],
+ ['After','Execution is left to you.','Execution is left to you.',['No one stays to execute','No capability transferred','No ongoing support'],'Nothing that runs.']];
+const bcards=[...document.querySelectorAll('.bcard')],appr=document.getElementById('s-approach'),tline=document.getElementById('tline'),tdots=[...tline.querySelectorAll('b')];
+let mode='vw',act=0;
+const data=()=>mode==='adv'?ADVD:VWD;
+const bdetail=document.getElementById('bdetail'),botsEl=document.getElementById('bots');
+function placeDetail(){if(innerWidth<=768)bcards[act].after(bdetail);else botsEl.after(bdetail)}
+addEventListener('resize',placeDetail);
+function showStep(i){act=i;placeDetail();const d=data()[i];bcards.forEach((c,j)=>c.classList.toggle('act',j===i));tdots.forEach((b,j)=>b.classList.toggle('on',j<=i));
+  const ins=document.querySelectorAll('#bdetail .bd-in');ins.forEach(x=>x.style.opacity=0);
+  setTimeout(()=>{document.getElementById('bdLbl').textContent=`Step 0${i+1} · ${d[0]}`;document.getElementById('bdH').textContent=d[2];
+    document.getElementById('bdUl').innerHTML=d[3].map((t,k)=>`<li style="--i:${k}">${t}</li>`).join('');
+    document.getElementById('bdOs').textContent=mode==='adv'?'What you are left with':'What you get';document.getElementById('bdO').textContent=d[4];ins.forEach(x=>x.style.opacity=1)},200)}
+function setMode(m){if(m===mode)return;mode=m;document.querySelectorAll('#switch button').forEach(b=>b.classList.toggle('on',b.dataset.m===m));appr.classList.toggle('adv',m==='adv');
+  const d=data();bcards.forEach((c,i)=>{const tx=c.querySelector('.tx');tx.classList.add('out');setTimeout(()=>{c.querySelector('h3').textContent=d[i][0];c.querySelector('p').textContent=d[i][1];tx.classList.remove('out')},250+i*70)});
+  showStep(act)}
+document.querySelectorAll('#switch button').forEach(b=>b.addEventListener('click',()=>setMode(b.dataset.m)));
+bcards.forEach((c,i)=>{c.addEventListener('click',()=>showStep(i));c.addEventListener('mouseenter',()=>{if(matchMedia('(pointer:fine)').matches)showStep(i)})});
+showStep(0);
+
+/* B2C / B2B */
+document.querySelectorAll('.aud').forEach(box=>{const t=box.nextElementSibling;box.querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>{box.querySelectorAll('button').forEach(x=>x.classList.toggle('on',x===b));t.style.opacity=0;setTimeout(()=>{t.textContent=t.dataset['t'+b.dataset.a];t.style.opacity=1},220)}))});
+
+/* scroll effects: progress, parallax, section numbers, text fill, approach track (reads first, then writes) */
+(function(){const pbar=document.getElementById('pbar'),nums=[...document.querySelectorAll('.bgnum')],ss=document.querySelector('.side-stack'),hc=document.querySelector('.hero-card'),bots=document.getElementById('bots');
+  let tick=false,geo=null;const fill=document.querySelector('.fill');
+  function measure(){const sy=scrollY;geo={docH:document.documentElement.scrollHeight,
+    nums:nums.map(n=>n.parentNode.getBoundingClientRect().top+sy),
+    words:fillWords.map(w=>w.getBoundingClientRect().top+sy),
+    bots:bots.getBoundingClientRect().top+sy}}
+  function upd(){tick=false;if(!geo)measure();const y=scrollY,H=innerHeight;
+    pbar.style.transform=`scaleX(${Math.min(1,y/(geo.docH-H))})`;
+    fillWords.forEach((w,i)=>{const on=RM||geo.words[i]-y<H*.75;if(on!==w._on){w._on=on;w.classList.toggle('on',on)}});
+    if(RM)return;
+    nums.forEach((n,i)=>{const t=geo.nums[i]-y;if(t<H*1.2&&t>-H*2)n.style.transform=`translate3d(0,${(t*-.38).toFixed(1)}px,0)`});
+    if(y<H*1.3&&innerWidth>900){ss.style.transform=`translate3d(0,${(y*-.12).toFixed(1)}px,0)`;hc.style.transform=`translate3d(0,${(y*.05).toFixed(1)}px,0)`}
+    tline.style.setProperty('--tp',Math.max(0,Math.min(1,(H*.85-(geo.bots-y))/(H*.45))).toFixed(3));
+  }
+  addEventListener('scroll',()=>{if(!tick){tick=true;requestAnimationFrame(upd)}},{passive:true});
+  addEventListener('resize',()=>{geo=null;upd()});addEventListener('load',()=>{geo=null;upd()});
+  document.fonts&&document.fonts.ready.then(()=>{geo=null;upd()});
+  setTimeout(()=>{geo=null;upd()},2600);
+  new ResizeObserver(()=>{geo=null}).observe(document.body);
+  upd();
+})();
+
+/* logo spotlight: small composited layer moved with transform; drifts slowly on touch devices */
+(function(){const spot=document.getElementById('spot');const fine=matchMedia('(pointer:fine)').matches&&innerWidth>768;spot.classList.add('on');
+  const D=fine?520:420;spot.style.setProperty('--sd',D+'px');const R=D/2;
+  let sx=innerWidth/2,sy=innerHeight/2,tx=sx,ty=sy,last=0,run=false,vis=true;
+  function paint(){spot.style.transform=`translate3d(${(sx-R).toFixed(1)}px,${(sy-R).toFixed(1)}px,0)`;spot.style.backgroundPosition=`${(-(sx-R)).toFixed(1)}px ${(-(sy-R)).toFixed(1)}px`}
+  function loop(t){if(!fine&&!RM&&performance.now()-last>2500){tx=innerWidth*(.5+.38*Math.sin(t*.00023));ty=innerHeight*(.5+.34*Math.sin(t*.00031+1.3))}
+    const k=fine?.3:.05;sx+=(tx-sx)*k;sy+=(ty-sy)*k;paint();
+    if(vis&&(!fine||Math.abs(tx-sx)+Math.abs(ty-sy)>.4))requestAnimationFrame(loop);else run=false}
+  const kick=()=>{if(!run&&vis){run=true;requestAnimationFrame(loop)}};
+  addEventListener('pointermove',e=>{tx=e.clientX;ty=e.clientY;last=performance.now();kick()},{passive:true});
+  addEventListener('touchmove',e=>{const t=e.touches[0];if(t){tx=t.clientX;ty=t.clientY;last=performance.now();kick()}},{passive:true});
+  document.addEventListener('visibilitychange',()=>{vis=!document.hidden;if(vis)kick()});
+  paint();if(!fine)kick();
+})();
+
+
+/* 3D tilt for cards (desktop) */
+if(matchMedia('(pointer:fine)').matches&&!RM){document.querySelectorAll('.postit-card,.vcard,.who-card,.c-stat,.illus-card,.c-manifesto').forEach(c=>{c.classList.add('tilt');
+  c.addEventListener('pointermove',e=>{if(c._raf)return;c._raf=requestAnimationFrame(()=>{c._raf=0;const r=c.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;c.style.transform=`perspective(900px) rotateX(${(-y*7).toFixed(2)}deg) rotateY(${(x*9).toFixed(2)}deg) translateY(-6px)`;c.style.animation='none'})});
+  c.addEventListener('pointerleave',()=>{c.style.transform='';c.style.animation=''})})}
+/* active nav */
+const navA=[...document.querySelectorAll('.tb-right a')];
+{let nt=false;const navS=navA.map(a=>document.querySelector(a.getAttribute('href')));addEventListener('scroll',()=>{if(nt)return;nt=true;requestAnimationFrame(()=>{nt=false;const h=innerHeight*.4;const rs=navS.map(s=>s.getBoundingClientRect());navA.forEach((a,i)=>a.classList.toggle('act',rs[i].top<h&&rs[i].bottom>h))})},{passive:true})}
+
+/* interactive background (desktop): grid parallax + glow via transforms */
+(function(){if(!matchMedia('(pointer:fine)').matches||RM)return;const glow=document.getElementById('bg-glow'),grid=document.getElementById('grid');let bx=0,by=0,tbx=0,tby=0,gx=innerWidth/2,gy=innerHeight/2,tgx=gx,tgy=gy,raf=false;
+  document.addEventListener('mousemove',e=>{tbx=(e.clientX/innerWidth-.5)*14;tby=(e.clientY/innerHeight-.5)*14;tgx=e.clientX;tgy=e.clientY;if(!raf){raf=true;requestAnimationFrame(loop)}},{passive:true});
+  function loop(){raf=false;bx+=(tbx-bx)*.06;by+=(tby-by)*.06;gx+=(tgx-gx)*.06;gy+=(tgy-gy)*.06;
+    grid.style.transform=`translate3d(${bx.toFixed(1)}px,${by.toFixed(1)}px,0)`;glow.style.transform=`translate3d(${(gx-700).toFixed(0)}px,${(gy-700).toFixed(0)}px,0)`;
+    if(Math.abs(tbx-bx)+Math.abs(tby-by)+Math.abs(tgx-gx)+Math.abs(tgy-gy)>.3){raf=true;requestAnimationFrame(loop)}}
+  glow.style.transform=`translate3d(${gx-700}px,${gy-700}px,0)`;
+})();
+
+/* pause looping animations for sections that are off-screen */
+(function(){const css=document.createElement('style');css.textContent='.offscreen *,.offscreen{animation-play-state:paused!important}';document.head.appendChild(css);
+  const io=new IntersectionObserver(es=>es.forEach(e=>e.target.classList.toggle('offscreen',!e.isIntersecting)),{rootMargin:'200px 0px'});
+  document.querySelectorAll('.wall-section,.wall-footer').forEach(s=>io.observe(s));})();
+
+/* form → same Google Form as the current site */
+(function(){const GF='https://docs.google.com/forms/d/e/1FAIpQLSfLzS31MGTEL1mpEZ7knjW-WDJL-VV9MmX9TrtZHq_im5Mxlg/formResponse';
+  const frm=document.getElementById('vwForm'),err=document.getElementById('vwErr'),ok=document.getElementById('vwOk');
+  frm.addEventListener('submit',e=>{e.preventDefault();err.style.display='none';let valid=true;
+    frm.querySelectorAll('[required]').forEach(f=>{if(!f.value.trim()){valid=false;f.style.borderColor='rgba(224,112,112,.55)'}else f.style.borderColor=''});
+    if(!valid){err.style.display='block';return}
+    const btn=frm.querySelector('[type=submit]');btn.disabled=true;btn.style.opacity='.55';
+    fetch(GF,{method:'POST',mode:'no-cors',body:new FormData(frm)}).then(()=>{frm.style.display='none';ok.style.display='block'}).catch(()=>{frm.style.display='none';ok.style.display='block'})});
+})();
+</script>
+</body>
+</html>
